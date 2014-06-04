@@ -55,6 +55,11 @@
 			<result name="createGroup">/addgroup.jsp</result>
 		</action>
 		
+		<action name="modificarGrupo"
+			class="fmat.proyectoMemo.struts.action.GrupoAction" method="modificarGrupo">
+			<result name="editGroup">/editgroup.jsp</result>
+		</action>
+		
 		<action name="agregarIntegrante"
 			class="fmat.proyectoMemo.struts.action.GrupoAction" method="agregarIntegrante">
 			<result name="editGroup">/editgroup.jsp</result>
@@ -70,6 +75,11 @@
 			class="fmat.proyectoMemo.struts.action.LDTAction" method="agregarLDT">
 			<result name="editLDT">/edittasklist.jsp</result>
 			<result name="addLDT">/addtasklist.jsp</result>
+		</action>
+		
+		<action name="modificarLDT"
+			class="fmat.proyectoMemo.struts.action.LDTAction" method="modificarLDT">
+			<result name="editLDT">/edittasklist.jsp</result>
 		</action>
 		
 

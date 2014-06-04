@@ -34,6 +34,21 @@ public class DAOGrupo extends DAOBase{
 		return oprExitosa;
 	}
 	
+	public boolean modificarGrupo(Grupo grupo){
+		boolean modificacionExitosa = false;
+		String sql = "UPDATE `grupos` SET `nombre`= '"+grupo.getNombre()+"' WHERE id_grupo = "+grupo.getIdGrupo();
+		try{
+			Statement statement = connection.createStatement();
+			int renglonesAfectados = statement.executeUpdate(sql);
+			if(renglonesAfectados > 0){
+				modificacionExitosa = true;
+			}
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return modificacionExitosa;
+	}
+	
 	public ArrayList<Grupo> obtenerGruposPorIdUsuario(int idUsuario){
 		ArrayList<Grupo> grupos = new ArrayList<>();
 		String sql = "SELECT grupos.id_grupo, nombre, id_creador, status FROM grupos LEFT JOIN integrantes ON grupos.id_grupo = integrantes.id_grupo WHERE integrantes.id_integrante ="+idUsuario;

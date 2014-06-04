@@ -6,6 +6,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import fmat.proyectoMemo.struts.dao.DAOLDT;
 import fmat.proyectoMemo.struts.model.ListaDeTareas;
 import fmat.proyectoMemo.struts.model.Usuario;
 
@@ -18,9 +19,12 @@ public class LDTAction extends ActionSupport implements SessionAware{
 	private ListaDeTareas ldt;
 	
 	public String agregarLDT(){
+		if(ldt.getFechLimite().equals("") && ldt.getIdCreador() != 0 && ldt.getNombre().equals("")){
+			DAOLDT dao = new DAOLDT();
+			boolean insercionExitosa = dao.insertarLDT(ldt);
+		}
 		return "";
 	}
-	
 	
 	
 	public ListaDeTareas getLdt() {

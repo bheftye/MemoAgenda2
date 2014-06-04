@@ -69,7 +69,7 @@
 									<tr>
 										<td></td>
 										<td align="right"><input type="submit"
-											value="Agregar LDT"><br /> <br /> <br /></td>
+											value="Editar LDT"><br /> <br /> <br /></td>
 									</tr>
 								</table>
 							</s:form>

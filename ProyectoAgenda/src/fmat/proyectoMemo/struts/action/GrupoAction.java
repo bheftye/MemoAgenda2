@@ -44,6 +44,19 @@ public class GrupoAction  extends ActionSupport implements SessionAware{
 		return "about";
 	}
 	
+	public String modificarGrupo(){
+		if(!(grupo.getIdGrupo() == 0 && grupo.getIdGrupo() < 0 && grupo.getNombre().equals(""))){
+			DAOGrupo dao = new DAOGrupo();
+			boolean insercionExitosa = dao.modificarGrupo(grupo);
+			if(insercionExitosa){
+				grupo = dao.obtenerGrupoPorId(grupo.getIdGrupo());
+				this.generarContactosAAgregar();
+				return "editGroup";
+			}
+		}
+		return "editGroup";
+	}
+	
 	public String agregarIntegrante(){
 		if(grupo.getIdGrupo() != 0){
 			DAOGrupo dao = new DAOGrupo();
