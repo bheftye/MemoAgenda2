@@ -31,7 +31,7 @@ public class InterceptorAutentificador implements Interceptor{
 		Usuario usuario = (Usuario)session.get("usuario");
 
 		if(usuario == null){
-			return Action.INPUT;
+			return Action.LOGIN;
 		}else{
 			return invocation.invoke();
 		}
