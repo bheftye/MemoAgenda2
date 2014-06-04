@@ -28,7 +28,7 @@
 	<div class="page">
 		<div class="blog-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class=" home"><a href="index.jsp">Inicio</a></li>
@@ -76,7 +76,6 @@
 
 						</div>
 						<div class="sidebar">
-						
 							<div class="blog-categories">
 								<a href="addevent.jsp" style="text-decoration: none"><h3>Agregar
 										evento</h3></a>
