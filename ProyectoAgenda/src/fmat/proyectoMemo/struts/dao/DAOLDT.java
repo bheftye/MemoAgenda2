@@ -30,4 +30,20 @@ public class DAOLDT extends DAOBase{
 		return insercionExitosa;
 	}
 	
+	public boolean modificarLDT(ListaDeTareas ldt){
+		boolean insercionExitosa = false;
+		String sql = "UPDATE `listas_tareas` SET nombre = '"+ldt.getNombre()+"', fecha_limite = '"+ldt.getFechLimite()+"' WHERE id_lista = "+ldt.getIdLDT();
+		try{
+			Statement st = connection.createStatement();
+			int renglonesAfectados = st.executeUpdate(sql);
+				if(renglonesAfectados > 0){
+					insercionExitosa = true;
+				}
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return insercionExitosa;
+	}
+	
+	
 }

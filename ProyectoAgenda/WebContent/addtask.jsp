@@ -51,25 +51,24 @@
 				<div class="content-blog">
 					<div>
 						<div>
-							<h3>Agregar lista de tareas</h3>
-							<div style="color: red">${errorMessage}</div>
-							<s:form action="agregarLDT" method="post">
-								<s:hidden name="ldt.idCreador" value="#session['usuario'].idUsuario" />
+							<h3>Agregar Tarea</h3>
+							<s:form action="agregarTarea" method="post">
+								<s:hidden name="tarea.idResponsable" value="#session['usuario'].idUsuario" />
+								<s:hidden name="tarea.idLDT" value="ldt.idLDT"/> 
 								<table style="margin-left: 10px;">
 									<tr>
-										<td><label>*Nombre de la lista de tareas: </label></td>
-										<td><s:textfield  name="ldt.nombre" size="31" /></td>
+										<td><label>*Nombre de la tarea: </label></td>
+										<td><s:textfield  name="tarea.nombre" size="31" /></td>
 									</tr>
 									
 									<tr>
-										<td><label>*Fecha de límite:</label></td>
-										<td><input type="text" name="ldt.fechLimite"
-											id="datepicker" size="31"></td>
+										<td><label>*Descripción:</label></td>
+										<td><s:textarea  name="tarea.descripcion"  /></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td align="right"><input type="submit"
-											value="Agregar LDT"><br /> <br /> <br /></td>
+											value="Agregar Tarea"><br /> <br /> <br /></td>
 									</tr>
 								</table>
 							</s:form>
