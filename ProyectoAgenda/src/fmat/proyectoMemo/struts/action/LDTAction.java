@@ -83,7 +83,7 @@ public class LDTAction extends ActionSupport implements SessionAware{
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.modificarTarea(tarea);
 			if(insercionExitosa){
-				return "editLDT";
+				return "editTask";
 			}
 		}
 		addActionError("No se realizó la operación");

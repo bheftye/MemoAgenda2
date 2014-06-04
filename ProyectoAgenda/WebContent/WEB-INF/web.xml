@@ -13,7 +13,7 @@
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
 
-<<<<<<< HEAD
+
 	<filter>
 		<filter-name>UsuarioFilter</filter-name>
 		<filter-class>fmat.proyectoMemo.servlets.filter.UsuarioFilter</filter-class>
@@ -22,8 +22,6 @@
 		<filter-name>UsuarioFilter</filter-name>
 		<url-pattern>/UsuarioFilter</url-pattern>
 	</filter-mapping>
-=======
->>>>>>> 02c1bc510284b48656234b4fd108f438a29dbd19
 
 	<servlet>
 		<description></description>
@@ -31,7 +29,7 @@
 		<servlet-name>addEvent</servlet-name>
 		<servlet-class>fmat.proyectoMemo.servlets.AddEventServlet</servlet-class>
 	</servlet>
-<<<<<<< HEAD
+
 	<servlet-mapping>
 		<servlet-name>addEvent</servlet-name>
 		<url-pattern>/AddEventServlet</url-pattern>
@@ -46,7 +44,7 @@
 	<servlet-mapping>
 		<servlet-name>recoverEvent</servlet-name>
 		<url-pattern>/RecoverEventInfoServlet</url-pattern>
-=======
+		</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>addEvent</servlet-name>
@@ -62,7 +60,6 @@
 	<servlet-mapping>
 		<servlet-name>showInfo</servlet-name>
 		<url-pattern>/showInfo</url-pattern>
->>>>>>> 02c1bc510284b48656234b4fd108f438a29dbd19
 	</servlet-mapping>
 
 	<filter>
@@ -73,8 +70,4 @@
 		<filter-name>struts2</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-<<<<<<< HEAD
-
-=======
->>>>>>> 02c1bc510284b48656234b4fd108f438a29dbd19
 </web-app>
