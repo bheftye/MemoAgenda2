@@ -48,10 +48,22 @@ public class LDTAction extends ActionSupport implements SessionAware{
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.insertarTarea(tarea);
 			if(insercionExitosa){
+				return "editTask";
+			}
+		}
+		return "addTask";
+	}
+	
+	public String modificarTarea(){
+		if(tarea.getNombre().equals("") && tarea.getDescripcion().equals("")){
+			DAOTarea dao = new DAOTarea();
+			boolean insercionExitosa = dao.modificarTarea(tarea);
+			if(insercionExitosa){
 				return "editLDT";
 			}
 		}
-		return "addLDT";
+		addActionError("No se realizó la operación");
+		return "editTask";
 	}
 	
 	
