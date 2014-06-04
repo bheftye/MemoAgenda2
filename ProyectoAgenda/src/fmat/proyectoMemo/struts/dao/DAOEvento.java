@@ -3,8 +3,10 @@ package fmat.proyectoMemo.struts.dao;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import fmat.proyectoMemo.struts.model.Evento;
+import fmat.proyectoMemo.struts.model.Usuario;
 
 public class DAOEvento extends DAOBase{
 
@@ -55,7 +57,7 @@ public class DAOEvento extends DAOBase{
 		}
 		return oprExitosa;
 	}
-	
+
 	public boolean agregarEventoIntegrantesyGrupo(Evento evento, String[] integrantes, String[] grupos) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
@@ -73,7 +75,7 @@ public class DAOEvento extends DAOBase{
 			evento.setId_evento(id_evento);
 			boolean agregados = agregarIntegrantesaEvento(evento.getId_evento(), integrantes);
 			boolean gruposAg = agregarGruposaEvento(evento.getId_evento(), grupos);
-			
+
 			if(id_evento != 0 && agregados && gruposAg){
 				oprExitosa = true;
 			}
@@ -104,7 +106,7 @@ public class DAOEvento extends DAOBase{
 		}
 		return oprExitosa;
 	}
-	
+
 	public boolean agregarEventoGrupos(Evento evento, String[] grupos) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
@@ -152,6 +154,26 @@ public class DAOEvento extends DAOBase{
 		return oprExitosa;
 	}
 
+	//SELECT * FROM `eventos` WHERE `id_evento` = (SELECT `id_evento` FROM `eventos_grupos` WHERE `id_grupo` = 4) 
+
+
+	public ArrayList<Evento> recuperarEventosDelUsuario(int id_usuario){
+		String sql = "SELECT * FROM `eventos` WHERE `id_creador`="+id_usuario+" union SELECT * FROM `eventos` WHERE `id_evento` = ANY (SELECT `id_evento` FROM `eventos_grupos` WHERE `id_grupo` = ANY (SELECT `id_grupo` FROM `integrantes` WHERE `id_integrante` = "+id_usuario+") ) union SELECT * FROM `eventos` WHERE `id_evento` = ANY (SELECT `id_evento` FROM `eventos_integrantes` WHERE `id_integrante` = "+id_usuario+" )";
+		ArrayList<Evento> eventos = new ArrayList<>();
+		try{
+			Statement statement = connection.createStatement();
+			ResultSet resultados = statement.executeQuery(sql);
+			while(resultados.next()){
+				eventos.add(new Evento(resultados.getInt("id_evento"),resultados.getInt("id_creador"),resultados.getString("nombre"), resultados.getString("fecha_inicio"), resultados.getString("fecha_final"), resultados.getString("hora_inicio"), resultados.getString("hora_final"), resultados.getString("ubicacion"), resultados.getString("descripcion")));
+			//(int id_evento,int id_creador, String nombre, String fecha_inicio, String fecha_final, String hora_inicio, String hora_final,	String ubicacion)
+			}
+
+		}
+		catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return eventos;
+	}
 }
 
 
