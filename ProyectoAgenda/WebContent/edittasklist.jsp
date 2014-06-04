@@ -58,13 +58,13 @@
 								<table style="margin-left: 10px;">
 									<tr>
 										<td><label>*Nombre de la lista de tareas: </label></td>
-										<td><s:textfield  name="ldt.nombre" value="ldt.nombre" size="31" /></td>
+										<td><s:textfield  name="ldt.nombre" value="%{ldt.nombre}" size="31" /></td>
 									</tr>
 									
 									<tr>
 										<td><label>*Fecha de límite:</label></td>
 										<td><input type="text" name="ldt.fechLimite"
-											id="datepicker" value="ldt.fechLimite" size="31"></td>
+											id="datepicker" value="%{ldt.fechLimite}" size="31"></td>
 									</tr>
 									<tr>
 										<td></td>
