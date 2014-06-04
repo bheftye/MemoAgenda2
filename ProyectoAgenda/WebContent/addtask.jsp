@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-<%@ taglib uri="WEB-INF/utils.tld" prefix="utils"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="WEB-INF/utils.tld" prefix="utils"%>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Agenda - MEMO</title>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet" href="css/styles.css" type="text/css">
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+	$(function() {
+		$("#datepicker").datepicker();
+		$("#datepickers").datepicker();
+		$("#datepicker3").datepicker();
+
+	});
+</script>
 
 </head>
 <body>
@@ -30,29 +44,35 @@
 			<div class="body">
 				<div class="login">
 					Bienvenido
-					<s:property value="#session['usuario'].alias" /> |
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi&oacute;n</s:a>
+					<s:property value="#session['usuario'].alias" />
+					|
+					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
 				</div>
 				<div class="content-blog">
 					<div>
 						<div>
-							<h3>Agenda</h3>
-							<div style="color: black;">${successMessage}</div>
+							<h3>Agregar Tarea</h3>
+							<s:form action="agregarTarea" method="post">
+								<s:hidden name="tarea.idResponsable" value="#session['usuario'].idUsuario" />
+								<s:hidden name="tarea.idLDT" value="ldt.idLDT"/> 
+								<table style="margin-left: 10px;">
+									<tr>
+										<td><label>*Nombre de la tarea: </label></td>
+										<td><s:textfield  name="tarea.nombre" size="31" /></td>
+									</tr>
+									
+									<tr>
+										<td><label>*Descripción:</label></td>
+										<td><s:textarea  name="tarea.descripcion"  /></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td align="right"><input type="submit"
+											value="Agregar Tarea"><br /> <br /> <br /></td>
+									</tr>
+								</table>
+							</s:form>
 
-							<center>
-								<p>
-									<utils:setDate />
-								<p>
-								<form>
-									<table width="500" border="2">
-										<utils:showCalendar />
-									</table>
-									<table cellpadding="7">
-										<utils:showNavigation />
-									</table>
-									<p>
-								</form>
-							</center>
 						</div>
 						<div class="sidebar">
 							<div>
@@ -65,10 +85,11 @@
 								</form>
 							</div>
 							<div class="blog-categories">
-								<a href="addevent.jsp"><h3>Agregar evento</h3></a>
+								<a href="addevent.jsp" style="text-decoration: none"><h3>Agregar
+										evento</h3></a>
 							</div>
 							<div>
-								<a href="addtasklist.jsp"><h3>Agregar lista de tareas</h3></a>
+								<a href="addtasklist.jsp" style="text-decoration: none"><h3>Agregar lista de tareas</h3></a>
 								<br /> <br /> <br /> <br />
 							</div>
 						</div>

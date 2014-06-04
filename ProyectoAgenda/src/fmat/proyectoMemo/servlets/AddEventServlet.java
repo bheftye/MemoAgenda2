@@ -39,6 +39,7 @@ public class AddEventServlet extends HttpServlet {
 		String fecha_final = request.getParameter("fecha_final");
 		String hora_inicio =  request.getParameter("hora_inicio");
 		String hora_final =  request.getParameter("hora_final");
+		String descripcion = request.getParameter("descripcion");
 
 		//Obteniendo el arreglo de integrantes
 		String[] integrantes = request.getParameterValues("integrantes");
@@ -56,7 +57,7 @@ public class AddEventServlet extends HttpServlet {
 		}else{
 			boolean result = true;
 			if((integrantes == null)&& (grupos == null)){	
-				Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+				Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion, descripcion);
 				result = daoEv.agregarEvento(evento );
 				if(result){
 					request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
@@ -67,7 +68,7 @@ public class AddEventServlet extends HttpServlet {
 				}
 			}else{
 				if((integrantes != null ) && (grupos == null)){
-					Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+					Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion, descripcion);
 					result = daoEv.agregarEventoIntegrantes(evento,integrantes);
 					if(result){
 						request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
@@ -78,7 +79,7 @@ public class AddEventServlet extends HttpServlet {
 					}
 				}else{
 					if((integrantes == null ) && (grupos != null)){
-						Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+						Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion, descripcion);
 						result = daoEv.agregarEventoGrupos(evento,grupos);
 						if(result){
 							request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
@@ -90,10 +91,9 @@ public class AddEventServlet extends HttpServlet {
 					}
 					else{
 						if((integrantes != null ) && (grupos != null)){
-							Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
-							result = daoEv.agregarEventoGrupos(evento,grupos);
-							boolean result2 = daoEv.agregarEventoIntegrantesyGrupo(evento, integrantes,grupos);
-							if(result && result2){
+							Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion , descripcion);
+							result = daoEv.agregarEventoIntegrantesyGrupo(evento, integrantes,grupos);
+							if(result){
 								request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
 								request.getRequestDispatcher("blog.jsp").forward(request, response);
 							}else{

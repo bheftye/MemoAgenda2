@@ -54,7 +54,7 @@
 							<h3>Agregar lista de tareas</h3>
 							<div style="color: red">${errorMessage}</div>
 							<s:form action="agregarLDT" method="post">
-								<s:hidden name="usuario.idUsuario" value="#session['usuario'].idUsuario" />
+								<s:hidden name="ldt.idCreador" value="#session['usuario'].idUsuario" />
 								<table style="margin-left: 10px;">
 									<tr>
 										<td><label>*Nombre de la lista de tareas: </label></td>
