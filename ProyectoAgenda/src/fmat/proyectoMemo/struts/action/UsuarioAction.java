@@ -43,7 +43,7 @@ public class UsuarioAction extends ActionSupport implements SessionAware {
 			return "portal";
 		} else {
 			addActionError(texto);
-			return "login";
+			return INPUT;
 		}
 	}
 
