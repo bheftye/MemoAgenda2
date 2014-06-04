@@ -51,10 +51,29 @@ public class LDTAction extends ActionSupport implements SessionAware{
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.insertarTarea(tarea);
 			if(insercionExitosa){
-				return "editTask";
+				this.actualizarLDT();
+				return "editLDT";
 			}
 		}
-		return "addTask";
+		addActionError("No se creo la tarea.");
+		return "editLDT";
+	}
+	
+	public void actualizarLDT(){
+		if(ldt.getIdLDT() != 0){
+			DAOLDT dao = new DAOLDT();
+			ldt = dao.obtenerLDTPorId(ldt.getIdLDT());
+		}
+	}
+	
+	public String mostrarLDT(){
+		if(ldt.getIdLDT() != 0){
+			DAOLDT dao = new DAOLDT();
+			ldt = dao.obtenerLDTPorId(ldt.getIdLDT());
+			return "editLDT";
+		}
+		addActionError("No se pudo mostrar la LDT.");
+		return "about";
 	}
 	
 	public String modificarTarea(){

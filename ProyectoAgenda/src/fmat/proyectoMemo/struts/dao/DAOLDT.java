@@ -94,7 +94,7 @@ public class DAOLDT extends DAOBase{
 	
 	public ArrayList<Tarea> obtenerTareasLDPPorId(int idLDT){
 		ArrayList<Tarea> tareas = new ArrayList<>();
-		String sql = "SELECT * FROM tareas WHERE id_list ="+idLDT;
+		String sql = "SELECT * FROM tareas WHERE id_lista ="+idLDT;
 		try{
 			Statement st = connection.createStatement();
 			ResultSet resultados = st.executeQuery(sql);

@@ -101,8 +101,7 @@
 		
 		<action name="agregarTarea"
 			class="fmat.proyectoMemo.struts.action.LDTAction" method="agregarTarea">
-			<result name="editTask">/edittask.jsp</result>
-			<result name="addTask">/edittasklist.jsp</result>
+			<result name="editLDT">/edittasklist.jsp</result>
 		</action>
 		
 		<action name="modificarTarea"
