@@ -71,6 +71,27 @@ public class DAOLDT extends DAOBase{
 		return ldts;
 	}
 	
+	public ListaDeTareas obtenerLDTPorId(int idLDT){
+		ListaDeTareas ldt = new ListaDeTareas();
+		String sql = "SELECT * FROM listas_tareas WHERE id_lista = "+idLDT;
+		try{
+			Statement st = connection.createStatement();
+			ResultSet resultados = st.executeQuery(sql);
+			while(resultados.next()){
+				ldt.setFechLimite(resultados.getString("fecha_limite"));
+				ldt.setIdCreador(resultados.getInt("id_creador"));
+				ldt.setIdLDT(resultados.getInt("id_lista"));
+				ldt.setNombre(resultados.getString("nombre"));
+				ldt.setStatus(resultados.getInt("status"));
+				ArrayList<Tarea> tareas = this.obtenerTareasLDPPorId(resultados.getInt("id_lista"));
+				ldt.setTareas(tareas);
+			}
+		}catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return ldt;
+	}
+	
 	public ArrayList<Tarea> obtenerTareasLDPPorId(int idLDT){
 		ArrayList<Tarea> tareas = new ArrayList<>();
 		String sql = "SELECT * FROM tareas WHERE id_list ="+idLDT;
