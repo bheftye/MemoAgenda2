@@ -60,12 +60,12 @@
 									
 									<tr>
 										<td><label>*Descripción:</label></td>
-										<td><s:textarea  name="tarea.descripcion"  /></td>
+										<td><s:textarea  name="tarea.descripcion" cols ="23" rows="10"/></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td align="right"><input type="submit"
-											value="Agregar Tarea"><br /> <br /> <br /></td>
+											value="Editar Tarea"><br /> <br /> <br /></td>
 									</tr>
 								</table>
 							</s:form>
