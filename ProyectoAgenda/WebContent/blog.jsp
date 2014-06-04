@@ -37,6 +37,7 @@
 					<div>
 						<div>
 							<h3>Agenda</h3>
+							<div style="color: red">${successMessage}</div>
 
 							<center>
 								<p>

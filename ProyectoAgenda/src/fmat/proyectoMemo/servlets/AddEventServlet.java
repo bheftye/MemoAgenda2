@@ -51,14 +51,15 @@ public class AddEventServlet extends HttpServlet {
 
 		if(nombre.isEmpty() || ubicacion.isEmpty() || fecha_inicio.isEmpty() || fecha_final.isEmpty() || hora_inicio.isEmpty()
 				|| hora_final.isEmpty()){
-			request.setAttribute("errorMessage", "Quedaron campos obligatorios vacÃ­os... <br /><br />");
+			request.setAttribute("errorMessage", "Quedaron campos obligatorios vacíos... <br /><br />");
 			request.getRequestDispatcher("addevent.jsp").forward(request, response);
 		}else{
 			boolean result = true;
 			if((integrantes == null)&& (grupos == null)){	
-					Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
-					result = daoEv.agregarEvento(evento );
+				Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+				result = daoEv.agregarEvento(evento );
 				if(result){
+					request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
 					request.getRequestDispatcher("blog.jsp").forward(request, response);
 				}else{
 					request.setAttribute("errorMessage", "Hubo un error al agregar el evento. <br /><br />");
@@ -68,34 +69,43 @@ public class AddEventServlet extends HttpServlet {
 				if((integrantes != null ) && (grupos == null)){
 					Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
 					result = daoEv.agregarEventoIntegrantes(evento,integrantes);
-				if(result){
-					request.getRequestDispatcher("blog.jsp").forward(request, response);
-				}else{
-					request.setAttribute("errorMessage", "Hubo un error al agregar el evento. <br /><br />");
-					request.getRequestDispatcher("addevent.jsp").forward(request, response);
-				}
-				}else{
-					if((integrantes == null ) && (grupos != null)){
-						Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
-						result = daoEv.agregarEventoGrupos(evento,grupos);
 					if(result){
+						request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
 						request.getRequestDispatcher("blog.jsp").forward(request, response);
 					}else{
 						request.setAttribute("errorMessage", "Hubo un error al agregar el evento. <br /><br />");
 						request.getRequestDispatcher("addevent.jsp").forward(request, response);
 					}
+				}else{
+					if((integrantes == null ) && (grupos != null)){
+						Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+						result = daoEv.agregarEventoGrupos(evento,grupos);
+						if(result){
+							request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
+							request.getRequestDispatcher("blog.jsp").forward(request, response);
+						}else{
+							request.setAttribute("errorMessage", "Hubo un error al agregar el evento. <br /><br />");
+							request.getRequestDispatcher("addevent.jsp").forward(request, response);
+						}
+					}
+					else{
+						if((integrantes != null ) && (grupos != null)){
+							Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
+							result = daoEv.agregarEventoGrupos(evento,grupos);
+							boolean result2 = daoEv.agregarEventoIntegrantes(evento, integrantes);
+							if(result && result2){
+								request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
+								request.getRequestDispatcher("blog.jsp").forward(request, response);
+							}else{
+								request.setAttribute("errorMessage", "Hubo un error al agregar el evento. <br /><br />");
+								request.getRequestDispatcher("addevent.jsp").forward(request, response);
+							}
+						}
+
+					}
+
 				}
-
-			}
-
-		}
-
-		System.out.println("Id creador:" + id_creador );
-		System.out.println("Nombre del evento:" + nombre );
-		System.out.println("Ubicacion:" + ubicacion );
-		System.out.println("Fecha inicio:" + fecha_inicio );
-		System.out.println("Fecha final:" + fecha_final );
-		}
+			}}
 
 	}
 
