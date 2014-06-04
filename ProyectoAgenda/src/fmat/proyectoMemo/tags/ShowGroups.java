@@ -9,6 +9,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+import fmat.proyectoMemo.struts.model.Grupo;
 import fmat.proyectoMemo.struts.model.Usuario;
 
 @SuppressWarnings("serial")
@@ -29,11 +30,11 @@ public class ShowGroups extends TagSupport {
 		String ffix= "\">";
 		String suffix ="</td></tr>";
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		ArrayList<Usuario> contactos = usuario.getContactos();
+		ArrayList<Grupo> grupos = usuario.getGrupos();
 		try {
-			for (int i = 0; i < contactos.size(); i++) {
-				Usuario contacto = (Usuario) contactos.get(i);
-				out.println(preffix +contacto.getIdUsuario() + ffix + contacto.getNombre() + suffix);
+			for (int i = 0; i < grupos.size(); i++) {
+				Grupo grupo = (Grupo) grupos.get(i);
+				out.println(preffix + grupo.getIdGrupo() + ffix + grupo.getNombre() + suffix);
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
