@@ -52,7 +52,7 @@
 					<div>
 						<div>
 							<h3>Editar Tarea</h3>
-							<s:form action="agregarTarea" method="post">
+							<s:form action="modificarTarea" method="post">
 								<s:hidden name="ldt.idCreador" value="#session['usuario'].idUsuario" />
 								<s:hidden name="ldt.idLDT" value="ldt.idLDT"/> 
 								<table style="margin-left: 10px;">

@@ -90,6 +90,16 @@ public class LDTAction extends ActionSupport implements SessionAware{
 		return "editTask";
 	}
 	
+	public String mostrarTarea(){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("") && (tarea.getIdTarea() != 0)){
+			DAOTarea dao = new DAOTarea();
+			this.tarea = dao.obtenerTareaPorId(tarea.getIdTarea());
+			return "editTask";
+		}
+		addActionError("No se realizó la operación");
+		return "editLDT";
+	}
+	
 	
 	public ListaDeTareas getLdt() {
 		return ldt;

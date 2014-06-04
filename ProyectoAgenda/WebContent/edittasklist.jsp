@@ -76,7 +76,7 @@
 							<h1>Tareas</h1>
 							<s:iterator value="ldt.tareas" status="a">
 								<s:iterator value="ldt.tareas[#a.index]">
-									<s:form action="mostrarLDT">
+									<s:form action="mostrarTarea">
 										<s:property value="nombre" />
 										<s:hidden name="tarea.idTarea"
 											value="%{idTarea}" />
