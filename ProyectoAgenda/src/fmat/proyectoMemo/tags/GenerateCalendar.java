@@ -94,7 +94,8 @@ public class GenerateCalendar extends TagSupport {
 					System.out.println("FOR || " +  fecha_calendario);
 					if(fecha_evento.equals(fecha_calendario)){
 						System.out.println("FOR >>> Son la misma fecha");
-						extra = "<br /><font size=\"2\">" + eventos.get(j).getNombre() +"</font>";
+						String ahref = "<a href=\"showInfo?idEvento="+eventos.get(j).getId_evento()+"\" style=\"text-decoration:none; color:white\">";
+						extra = "<br />"+ ahref +"<font size=\"2\">*" + eventos.get(j).getNombre() +"</font></a>";
 						System.out.println("FOR >>>>" + extra);
 						out.print( extra );
 					}else{
@@ -134,7 +135,8 @@ public class GenerateCalendar extends TagSupport {
 						System.out.println("FOR || " +  fecha_calendario);
 						if(fecha_evento.equals(fecha_calendario)){
 							System.out.println("FOR >>> Son la misma fecha");
-							extra = "<br /><font size=\"2\">*" + eventos.get(j).getNombre() +"</font>";
+							String ahref = "<a href=\"showInfo?idEvento="+eventos.get(j).getId_evento()+"\" style=\"text-decoration:none; color:white\">";
+							extra = "<br />"+ ahref +"<font size=\"2\">*" + eventos.get(j).getNombre() +"</font></a>";
 							System.out.println("FOR >>>>" + extra);
 							out.print( extra );
 						}else{

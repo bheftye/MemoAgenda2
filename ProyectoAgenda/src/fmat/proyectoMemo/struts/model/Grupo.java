@@ -23,6 +23,11 @@ public class Grupo {
 	
 	public Grupo(){}
 	
+	public Grupo(int idGrupo, String nombre) {
+		this.idGrupo = idGrupo;
+		this.nombre = nombre;
+		}
+
 	public int getIdGrupo() {
 		return idGrupo;
 	}

@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import fmat.proyectoMemo.struts.model.Evento;
+import fmat.proyectoMemo.struts.model.Grupo;
 import fmat.proyectoMemo.struts.model.Usuario;
 
 public class DAOEvento extends DAOBase{
@@ -165,7 +166,7 @@ public class DAOEvento extends DAOBase{
 			ResultSet resultados = statement.executeQuery(sql);
 			while(resultados.next()){
 				eventos.add(new Evento(resultados.getInt("id_evento"),resultados.getInt("id_creador"),resultados.getString("nombre"), resultados.getString("fecha_inicio"), resultados.getString("fecha_final"), resultados.getString("hora_inicio"), resultados.getString("hora_final"), resultados.getString("ubicacion"), resultados.getString("descripcion")));
-			//(int id_evento,int id_creador, String nombre, String fecha_inicio, String fecha_final, String hora_inicio, String hora_final,	String ubicacion)
+				//(int id_evento,int id_creador, String nombre, String fecha_inicio, String fecha_final, String hora_inicio, String hora_final,	String ubicacion)
 			}
 
 		}
@@ -174,6 +175,59 @@ public class DAOEvento extends DAOBase{
 		}
 		return eventos;
 	}
+
+	public ArrayList<Usuario> recuperarIntegrantes(int id_evento){
+		String sql = "SELECT `id_usuario`, `nombre`,`alias` FROM usuarios WHERE id_usuario = ANY (SELECT `id_integrante` FROM `eventos_integrantes` WHERE `id_evento`= "+id_evento+")";
+		ArrayList<Usuario> integrantes = new ArrayList<>();
+		try{
+			Statement statement = connection.createStatement();
+			ResultSet resultados = statement.executeQuery(sql);
+			while(resultados.next()){
+				integrantes.add(new Usuario(resultados.getInt("id_usuario"), resultados.getString("nombre"), resultados.getString("alias")));
+			}
+
+		}
+		catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return integrantes;
+	}
+
+	public ArrayList<Grupo> recuperarGrupos(int id_evento){
+		String sql = "SELECT `id_grupo`,`nombre` FROM grupos WHERE id_grupo = ANY (SELECT `id_grupo` FROM `eventos_grupos` WHERE `id_evento`= "+id_evento+ ")";
+		ArrayList<Grupo> grupos = new ArrayList<>();
+		try{
+			Statement statement = connection.createStatement();
+			ResultSet resultados = statement.executeQuery(sql);
+			while(resultados.next()){
+				grupos.add(new Grupo(resultados.getInt("id_grupo"), resultados.getString("nombre")));
+			}
+
+		}
+		catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return grupos;
+	}
+
+	public Evento recuperarEvento(int id_evento){
+		String sql = "SELECT * FROM `eventos` WHERE `id_evento`="+id_evento;
+		Evento evento = null;
+		try{
+			Statement statement = connection.createStatement();
+			ResultSet resultados = statement.executeQuery(sql);
+			while(resultados.next()){
+				evento = new Evento(resultados.getInt("id_evento"),resultados.getInt("id_creador"),resultados.getString("nombre"), resultados.getString("fecha_inicio"), resultados.getString("fecha_final"), resultados.getString("hora_inicio"), resultados.getString("hora_final"), resultados.getString("ubicacion"), resultados.getString("descripcion"));
+				//(int id_evento,int id_creador, String nombre, String fecha_inicio, String fecha_final, String hora_inicio, String hora_final,	String ubicacion)
+			}
+		}
+		catch(SQLException ex){
+			ex.printStackTrace();
+		}
+		return evento;
+	}
+
+
 }
 
 

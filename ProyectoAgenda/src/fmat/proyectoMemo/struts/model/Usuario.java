@@ -27,6 +27,13 @@ public class Usuario {
 
 	public Usuario(){}
 	
+	public Usuario(int idUsuario, String nombre, String alias) {
+		// TODO Auto-generated constructor stub
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.alias = alias;
+	}
+
 	public ArrayList<Usuario> getContactos() {
 		return contactos;
 	}

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <%@ taglib uri="WEB-INF/utils.tld" prefix="utils"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Agenda - MEMO</title>
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet" href="css/styles.css" type="text/css">
-
+<style>
+</style>
 </head>
 <body>
 	<div id="background-lightgreen"></div>
@@ -28,43 +30,22 @@
 			<div class="body">
 				<div class="login">
 					Bienvenido
-					<s:property value="#session['usuario'].alias" /> |
+					<s:property value="#session['usuario'].alias" />
+					|
 					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi&oacute;n</s:a>
 				</div>
 				<div class="content-blog">
 					<div>
 						<div>
-							<h3>Agenda</h3>
-							<div style="color: black;">${successMessage}</div>
-								<p>
-								<center><utils:setDate /></center>	
-								<p>
-								<form>
-									<table width="500" border="2">
-										<utils:showCalendar />
-									</table>
-									<table cellpadding="7">
-										<utils:showNavigation />
-									</table>
-									<p>
-								</form>
+							<h3>Información de Evento</h3>
+							<table style="margin-left: 20px;">
+								<utils:showEventInfo id_evento="${eventoInfo}" />
+							</table>
+							<br /> <br /> <br /> <br /> <br />
 						</div>
 						<div class="sidebar">
-							<div>
-								<h3>Buscar evento</h3>
-								<form action="index.html">
-									<input type="text" value="Búsqueda"
-										onblur="this.value=!this.value?'Busqueda':this.value;"
-										onfocus="this.select()" onclick="this.value='';"> <input
-										type="submit" value="">
-								</form>
-							</div>
 							<div class="blog-categories">
-								<a href="addevent.jsp"><h3>Agregar evento</h3></a>
-							</div>
-							<div>
-								<a href="addtasklist.jsp"><h3>Agregar lista de tareas</h3></a>
-								<br /> <br /> <br /> <br />
+								<a href="addevent.jsp"><h3>Modificar evento</h3></a>
 							</div>
 						</div>
 					</div>

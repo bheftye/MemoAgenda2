@@ -31,4 +31,15 @@
 		<tagclass>fmat.proyectoMemo.tags.ShowGroups</tagclass>
 		<bodycontent>empty</bodycontent>
 	</tag>
+	<tag>
+		<name>showEventInfo</name>
+		<tagclass>fmat.proyectoMemo.tags.ShowEventInfo</tagclass>
+		<bodycontent>empty</bodycontent>
+		<attribute>
+			<name>id_evento</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+			<type>Integer</type>
+		</attribute>
+	</tag>
 </taglib>
