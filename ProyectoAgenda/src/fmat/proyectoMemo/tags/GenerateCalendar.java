@@ -1,16 +1,21 @@
 package fmat.proyectoMemo.tags;
 
-import	java.io.IOException;
-import	java.util.Calendar;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
-import	java.util.GregorianCalendar;
-import	java.text.DateFormat;
-import	java.util.StringTokenizer;
+import java.util.GregorianCalendar;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
+
+import fmat.proyectoMemo.struts.model.Evento;
+import fmat.proyectoMemo.struts.model.Grupo;
+import fmat.proyectoMemo.struts.model.Usuario;
 
 
 
@@ -21,18 +26,20 @@ public class GenerateCalendar extends TagSupport {
 	int today = greg.get(Calendar.DATE);
 	int month =greg.get(Calendar.MONTH);
 	int year = greg.get(Calendar.YEAR);
-	
-	
+	ArrayList<Evento> eventos = new ArrayList<Evento>();
 
 
 	public int doStartTag() throws JspException {
 		GregorianCalendar	cal = null;
+		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();  
+		HttpSession session = request.getSession(false);  
+
 		cal = (GregorianCalendar) pageContext.getAttribute( "date",
 				PageContext.SESSION_SCOPE );
 		if( cal == null )
 			throw( new JspException( "date missing from page" ) );
 		try {
-			generate( pageContext.getOut(), cal );
+			generate( pageContext.getOut(), cal ,session);
 		}
 		catch( IOException e ) {
 			throw( new JspException( getClass().getName() + ": " +
@@ -41,8 +48,9 @@ public class GenerateCalendar extends TagSupport {
 		return( SKIP_BODY );
 	}
 
-	private void generate( JspWriter out, GregorianCalendar cal )
+	private void generate( JspWriter out, GregorianCalendar cal , HttpSession session)
 			throws IOException {
+		 getUserEvents(session);
 		int		i = -1;
 		int		mon = -1;
 
@@ -61,9 +69,9 @@ public class GenerateCalendar extends TagSupport {
 			if( (cal.get( Calendar.DATE ) == today) && (cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
 				System.out.println("Fecha 2: " + cal.get( Calendar.DATE ) +"/"+ cal.get(Calendar.MONTH) +"/" + year);
 				out.print( getHeaderToday() );
-				}else{
-					out.print( getHeader( i ));
-					}
+			}else{
+				out.print( getHeader( i ));
+			}
 			if( i == cal.get( Calendar.DAY_OF_WEEK ) ) {
 				out.print( cal.get( Calendar.DATE ) );//
 				cal.add( Calendar.DATE, 1 );
@@ -99,6 +107,14 @@ public class GenerateCalendar extends TagSupport {
 		cal.set( Calendar.DATE, 1 );
 	}
 
+	private void getUserEvents(HttpSession session) {
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
+		//creador, integrante
+		ArrayList<Grupo> grupos = usuario.getGrupos();
+		// le paso el id del grupo
+		
+	}
+
 	private String getHeader( int dayOfWeek ) {
 		String	style = "weekday";
 
@@ -111,4 +127,6 @@ public class GenerateCalendar extends TagSupport {
 		String	style = "today";
 		return( "<td class=\"" + style + "\">" );
 	}
+
+
 }

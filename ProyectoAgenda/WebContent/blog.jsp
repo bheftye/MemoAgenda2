@@ -38,10 +38,8 @@
 						<div>
 							<h3>Agenda</h3>
 							<div style="color: black;">${successMessage}</div>
-
-							<center>
 								<p>
-									<utils:setDate />
+								<center><utils:setDate /></center>	
 								<p>
 								<form>
 									<table width="500" border="2">
@@ -52,7 +50,6 @@
 									</table>
 									<p>
 								</form>
-							</center>
 						</div>
 						<div class="sidebar">
 							<div>
