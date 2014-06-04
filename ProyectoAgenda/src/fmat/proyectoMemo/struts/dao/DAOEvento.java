@@ -34,7 +34,7 @@ public class DAOEvento extends DAOBase{
 	public boolean agregarEventoIntegrantes(Evento evento, String[] integrantes) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
-				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
+				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`, `descripcion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
 				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
@@ -59,7 +59,7 @@ public class DAOEvento extends DAOBase{
 	public boolean agregarEventoIntegrantesyGrupo(Evento evento, String[] integrantes, String[] grupos) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
-				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
+				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`,`descripcion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
 				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
@@ -108,7 +108,7 @@ public class DAOEvento extends DAOBase{
 	public boolean agregarEventoGrupos(Evento evento, String[] grupos) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
-				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
+				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`,`descripcion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
 				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \""+ evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
