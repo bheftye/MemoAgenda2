@@ -7,17 +7,34 @@
 	<constant name="struts.action.excludePattern" value="/addEvent" />
 	
 	<package name="basicstruts2" extends="struts-default">
+		
+		<interceptors>
+			<interceptor name="autentificador"
+				class="fmat.proyectoMemo.struts.interceptor.InterceptorAutentificador" />
+			<interceptor-stack name="AutentificadorStack">
+				<interceptor-ref name="autentificador" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="AutentificadorStack" />
+		
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+			
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
 
 		<!-- <action name="*Usuario" class="fmat.proyectoMemo.struts.action.UsuarioAction" 
 			method="{1}"> <result name="inicio">/portal.jsp</result> </action> -->
-
+		
 		<action name="iniciarSesion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
 			method="iniciarSesion">
+			<interceptor-ref name="defaultStack" />
 			<result name="portal">/portal.jsp</result>
-			<result name="login">/login.jsp</result>
+			<result name="input">/login.jsp</result>
 		</action>
 
 		<action name="registrarUsuario" class="fmat.proyectoMemo.struts.action.UsuarioAction"
