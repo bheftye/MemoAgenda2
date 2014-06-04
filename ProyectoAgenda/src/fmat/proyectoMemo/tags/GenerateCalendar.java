@@ -81,6 +81,7 @@ public class GenerateCalendar extends TagSupport {
 				out.print( getHeader( i ));
 			}
 			if( i == cal.get( Calendar.DAY_OF_WEEK ) ) {
+				out.print( cal.get( Calendar.DATE));//
 				for (int j = 0; j < eventos.size(); j++) {
 					System.out.println("FOR || " + eventos.get(j).toString());
 					cal2.setTime(sdf.parse(eventos.get(j).getFecha_inicio()));// all done
@@ -93,14 +94,13 @@ public class GenerateCalendar extends TagSupport {
 					System.out.println("FOR || " +  fecha_calendario);
 					if(fecha_evento.equals(fecha_calendario)){
 						System.out.println("FOR >>> Son la misma fecha");
-						extra = "<br /><font size=\"2\">" + eventos.get(j).getNombre() +"</font><br/>";
+						extra = "<br /><font size=\"2\">" + eventos.get(j).getNombre() +"</font>";
 						System.out.println("FOR >>>>" + extra);
-						out.print( cal.get( Calendar.DATE) + extra );
+						out.print( extra );
 					}else{
 						extra = "";
 					}
 				}
-				out.print( cal.get( Calendar.DATE));//
 				extra = "";
 				cal.add( Calendar.DATE, 1 );	
 			}
@@ -117,14 +117,31 @@ public class GenerateCalendar extends TagSupport {
 
 					if( (cal.get( Calendar.DATE ) == today) && (cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
 						out.print( getHeaderToday() );
-						out.print( cal.get( Calendar.DATE ) );
-						cal.add( Calendar.DATE, 1 );
-
 					}else{
 						out.print( getHeader( i ) );
-						out.print( cal.get( Calendar.DATE ) );//
-						cal.add( Calendar.DATE, 1 );
 					}
+					out.print( cal.get( Calendar.DATE ) );
+
+					for (int j = 0; j < eventos.size(); j++) {
+						System.out.println("FOR || " + eventos.get(j).toString());
+						cal2.setTime(sdf.parse(eventos.get(j).getFecha_inicio()));// all done
+						int day = cal2.get(Calendar.DATE);
+						int monthAux = cal2.get(Calendar.MONTH);
+						int yearAux = cal2.get(Calendar.YEAR);
+						String fecha_evento = day + "/" + monthAux +"/" +yearAux;
+						String fecha_calendario =cal.get( Calendar.DATE ) + "/" + cal.get( Calendar.MONTH) +"/" +cal.get( Calendar.YEAR );
+						System.out.println("FOR || " + fecha_evento);
+						System.out.println("FOR || " +  fecha_calendario);
+						if(fecha_evento.equals(fecha_calendario)){
+							System.out.println("FOR >>> Son la misma fecha");
+							extra = "<br /><font size=\"2\">*" + eventos.get(j).getNombre() +"</font>";
+							System.out.println("FOR >>>>" + extra);
+							out.print( extra );
+						}else{
+							extra = "";
+						}
+					}
+					cal.add( Calendar.DATE, 1 );
 				}
 				else
 					out.println( " " );
