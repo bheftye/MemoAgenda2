@@ -84,7 +84,7 @@
 									</s:form>
 								</s:iterator>
 							</s:iterator>
-							h3>Agregar Tarea</h3>
+							<h5>Agregar Tarea</h5>
 							<s:form action="agregarTarea" method="post">
 								<s:hidden name="tarea.idResponsable" value="%{#session['usuario'].idUsuario}" />
 								<s:hidden name="tarea.idLDT" value="%{ldt.idLDT}"/> 

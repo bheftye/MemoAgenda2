@@ -46,11 +46,13 @@ public class LDTAction extends ActionSupport implements SessionAware{
 		return "editLDT";
 	}
 	
-	public String insertarTarea(){
+	public String agregarTarea(){
 		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("")){
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.insertarTarea(tarea);
 			if(insercionExitosa){
+				ldt = new ListaDeTareas();
+				ldt.setIdLDT(tarea.getIdLDT());
 				this.actualizarLDT();
 				return "editLDT";
 			}
@@ -60,7 +62,7 @@ public class LDTAction extends ActionSupport implements SessionAware{
 	}
 	
 	public void actualizarLDT(){
-		if(ldt.getIdLDT() != 0){
+		if(ldt != null && ldt.getIdLDT() != 0){
 			DAOLDT dao = new DAOLDT();
 			ldt = dao.obtenerLDTPorId(ldt.getIdLDT());
 		}
