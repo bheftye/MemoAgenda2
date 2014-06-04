@@ -3,7 +3,6 @@
 
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
-<!-- Website template by freewebsitetemplates.com -->
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,18 +14,15 @@
 	<div class="page">
 		<div class="about-page">
 			<div class="sidebar">
-				<a href="`portal.jsp" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class="home"><a href="portal.jsp">Inicio</a></li>
 					<li class=" selected about"><a href="about.jsp">Perfil</a></li>
-					<li class="blog"><a href="blog.html">Agenda</a></li>
-					<li class="projects"><a href="projects.html">Ajustes</a></li>
-					<li class="contact"><a href="contact.html">Contacto</a></li>
+					<li class="blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
 				<div class="connect">
-					<a href="http://freewebsitetemplates.com/go/facebook/" id="fb">facebook</a>
-					<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
+
 				</div>
 			</div>
 			<div class="body">
@@ -103,9 +99,7 @@
 					<ul>
 						<li><a href="portal.jsp">Inicio</a></li>
 						<li><a href="about.jsp">Perfil</a></li>
-						<li><a href="projects.html">Agenda</a></li>
-						<li><a href="blog.html">Ajustes</a></li>
-						<li><a href="contact.html">Contacto</a></li>
+						<li><a href="blog.jsp">Agenda</a></li>
 					</ul>
 				</div>
 			</div>

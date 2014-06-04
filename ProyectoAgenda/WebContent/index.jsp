@@ -19,7 +19,7 @@
 	<div class="page">
 		<div class="home-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class="selected home"><a href="portal.jsp">Inicio</a></li>
@@ -60,8 +60,6 @@
 						<li><a href="index.jsp">Inicio</a></li>
 						<li><a href="about.jsp">Perfil</a></li>
 						<li><a href="blog.jsp">Agenda</a></li>
-						<li><a href="blog.jsp">Ajustes</a></li>
-						<li><a href="contact.html">Contacto</a></li>
 					</ul>
 				</div>
 			</div>

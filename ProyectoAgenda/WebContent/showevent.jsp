@@ -16,7 +16,7 @@
 	<div class="page">
 		<div class="blog-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class=" home"><a href="index.jsp">Inicio</a></li>
@@ -24,7 +24,6 @@
 					<li class="selected blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
 				<div class="connect">
-					<a href="#" id="fb">facebook</a> <a href="#" id="twitter">twitter</a>
 				</div>
 			</div>
 			<div class="body">
@@ -44,9 +43,6 @@
 							<br /> <br /> <br /> <br /> <br />
 						</div>
 						<div class="sidebar">
-							<div class="blog-categories">
-								<a href="addevent.jsp"><h3>Modificar evento</h3></a>
-							</div>
 						</div>
 					</div>
 				</div>

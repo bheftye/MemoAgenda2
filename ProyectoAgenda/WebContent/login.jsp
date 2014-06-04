@@ -16,7 +16,7 @@
 	<div class="page">
 		<div class="home-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="index.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class="home"><a href="index.jsp">Inicio</a></li>
@@ -26,7 +26,6 @@
 					<li class="contact"><a href="contact.html">Contacto</a></li>
 				</ul>
 				<div class="connect">
-					<a href="#" id="fb">facebook</a> <a href="#" id="twitter">twitter</a>
 				</div>
 			</div>
 			<div class="body">
@@ -108,11 +107,9 @@
 				<div class="footer">
 					<p>&#169; 2014 MEMO | AGENDA EN LINEA</p>
 					<ul>
-						<li><a href="index.html">Inicio</a></li>
-						<li><a href="about.html">Perfil</a></li>
-						<li><a href="projects.html">Agenda</a></li>
-						<li><a href="blog.html">Ajustes</a></li>
-						<li><a href="contact.html">Contacto</a></li>
+						<li><a href="index.jsp">Inicio</a></li>
+						<li><a href="aboutjsp">Perfil</a></li>
+						<li><a href="blog.jsp">Agenda</a></li>
 					</ul>
 				</div>
 			</div>
