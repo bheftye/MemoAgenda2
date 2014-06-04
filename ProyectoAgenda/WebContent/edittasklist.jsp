@@ -54,22 +54,54 @@
 							<h3>Editar lista de tareas</h3>
 							<s:actionerror/>
 							<s:form action="modificarLDT" method="post">
-								<s:hidden name="usuario.idUsuario" value="#session['usuario'].idUsuario" />
+								<s:hidden name="ldt.idCreador" value="%{#session['usuario'].idUsuario}" />
 								<table style="margin-left: 10px;">
 									<tr>
 										<td><label>*Nombre de la lista de tareas: </label></td>
-										<td><s:textfield  name="ldt.nombre" value="ldt.nombre" size="31" /></td>
+										<td><s:textfield  name="ldt.nombre" value="%{ldt.nombre}" size="31" /></td>
 									</tr>
 									
 									<tr>
 										<td><label>*Fecha de límite:</label></td>
 										<td><input type="text" name="ldt.fechLimite"
-											id="datepicker" value="ldt.fechLimite" size="31"></td>
+											id="datepicker" value="<s:property value="ldt.fechLimite"/>" size="31"></td>
 									</tr>
 									<tr>
 										<td></td>
 										<td align="right"><input type="submit"
 											value="Editar LDT"><br /> <br /> <br /></td>
+									</tr>
+								</table>
+							</s:form>
+							<h1>Tareas</h1>
+							<s:iterator value="ldt.tareas" status="a">
+								<s:iterator value="ldt.tareas[#a.index]">
+									<s:form action="mostrarLDT">
+										<s:property value="nombre" />
+										<s:hidden name="tarea.idTarea"
+											value="%{idTarea}" />
+										<s:submit cssClass="submit" style="display:inline" value="Ver" />
+									</s:form>
+								</s:iterator>
+							</s:iterator>
+							<h5>Agregar Tarea</h5>
+							<s:form action="agregarTarea" method="post">
+								<s:hidden name="tarea.idResponsable" value="%{#session['usuario'].idUsuario}" />
+								<s:hidden name="tarea.idLDT" value="%{ldt.idLDT}"/> 
+								<table style="margin-left: 10px;">
+									<tr>
+										<td><label>*Nombre de la tarea: </label></td>
+										<td><s:textfield  name="tarea.nombre" size="31" /></td>
+									</tr>
+									
+									<tr>
+										<td><label>*Descripción:</label></td>
+										<td><s:textarea  name="tarea.descripcion"  /></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td align="right"><input type="submit"
+											value="Agregar Tarea"><br /> <br /> <br /></td>
 									</tr>
 								</table>
 							</s:form>

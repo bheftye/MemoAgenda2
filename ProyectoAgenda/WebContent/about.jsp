@@ -76,6 +76,7 @@
 									<br>
 								</s:iterator>
 							</s:iterator>
+							<br>
 							<h1>Grupos</h1>
 							<s:iterator value="#session['usuario'].grupos" status="a">
 								<s:iterator value="#session['usuario'].grupos[#a.index]">
@@ -83,6 +84,18 @@
 										<s:property value="nombre" />
 										<s:hidden name="grupo.idGrupo"
 											value="%{idGrupo}" />
+										<s:submit cssClass="submit" style="display:inline" value="Ver" />
+									</s:form>
+								</s:iterator>
+							</s:iterator>
+							<br>
+							<h1>Listas de Tareas</h1>
+							<s:iterator value="#session['usuario'].ldts" status="a">
+								<s:iterator value="#session['usuario'].ldts[#a.index]">
+									<s:form action="mostrarLDT">
+										<s:property value="nombre" />
+										<s:hidden name="ldt.idLDT"
+											value="%{idLDT}" />
 										<s:submit cssClass="submit" style="display:inline" value="Ver" />
 									</s:form>
 								</s:iterator>

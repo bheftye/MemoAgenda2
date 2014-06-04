@@ -53,8 +53,8 @@
 						<div>
 							<h3>Agregar Tarea</h3>
 							<s:form action="agregarTarea" method="post">
-								<s:hidden name="tarea.idResponsable" value="#session['usuario'].idUsuario" />
-								<s:hidden name="tarea.idLDT" value="ldt.idLDT"/> 
+								<s:hidden name="tarea.idResponsable" value="%{#session['usuario'].idUsuario}" />
+								<s:hidden name="tarea.idLDT" value="%{ldt.idLDT}"/> 
 								<table style="margin-left: 10px;">
 									<tr>
 										<td><label>*Nombre de la tarea: </label></td>

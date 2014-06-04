@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import fmat.proyectoMemo.struts.model.Grupo;
+import fmat.proyectoMemo.struts.model.ListaDeTareas;
 import fmat.proyectoMemo.struts.model.Usuario;
 
 public class DAOUsuario extends DAOBase {
@@ -244,7 +245,10 @@ public class DAOUsuario extends DAOBase {
 				ArrayList<Grupo> grupos = new ArrayList<>();
 				DAOGrupo dao = new DAOGrupo();
 				grupos = dao.obtenerGruposPorIdUsuario(resultados.getInt("id_usuario"));
-				usuario = new Usuario(resultados.getInt("id_usuario"),resultados.getString("alias"), resultados.getString("contrasena"),resultados.getString("nombre"),resultados.getString("correo"),resultados.getString("foto"), contactos, grupos);
+				ArrayList<ListaDeTareas> ldts = new ArrayList<>();
+				DAOLDT daoLDT = new DAOLDT();
+				ldts = daoLDT.obtenerLDTSPorIdUsuario(resultados.getInt("id_usuario"));
+				usuario = new Usuario(resultados.getInt("id_usuario"),resultados.getString("alias"), resultados.getString("contrasena"),resultados.getString("nombre"),resultados.getString("correo"),resultados.getString("foto"), contactos,grupos, ldts);
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();
@@ -266,7 +270,10 @@ public class DAOUsuario extends DAOBase {
 				DAOGrupo dao = new DAOGrupo();
 				grupos = dao.obtenerGruposPorIdUsuario(resultados.getInt("id_usuario"));
 				contactos = this.obtenerContactosPorId(resultados.getInt("id_usuario"));
-				usuario = new Usuario(resultados.getInt("id_usuario"),resultados.getString("alias"), resultados.getString("contrasena"),resultados.getString("nombre"),resultados.getString("correo"),resultados.getString("foto"),contactos, grupos);
+				ArrayList<ListaDeTareas> ldts = new ArrayList<>();
+				DAOLDT daoLDT = new DAOLDT();
+				ldts = daoLDT.obtenerLDTSPorIdUsuario(resultados.getInt("id_usuario"));
+				usuario = new Usuario(resultados.getInt("id_usuario"),resultados.getString("alias"), resultados.getString("contrasena"),resultados.getString("nombre"),resultados.getString("correo"),resultados.getString("foto"),contactos, grupos, ldts);
 			}
 		} catch (SQLException ex) {
 			ex.printStackTrace();

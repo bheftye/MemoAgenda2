@@ -21,6 +21,9 @@ public class ListaDeTareas {
 		this.status = status;
 		this.tareas = tareas;
 	}
+	
+	public ListaDeTareas(){}
+	
 	public int getIdLDT() {
 		return idLDT;
 	}
