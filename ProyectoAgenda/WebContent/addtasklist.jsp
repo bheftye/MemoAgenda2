@@ -76,15 +76,7 @@
 
 						</div>
 						<div class="sidebar">
-							<div>
-								<h3>Buscar evento</h3>
-								<form action="index.html">
-									<input type="text" value="Búsqueda"
-										onblur="this.value=!this.value?'Busqueda':this.value;"
-										onfocus="this.select()" onclick="this.value='';"> <input
-										type="submit" value="">
-								</form>
-							</div>
+						
 							<div class="blog-categories">
 								<a href="addevent.jsp" style="text-decoration: none"><h3>Agregar
 										evento</h3></a>

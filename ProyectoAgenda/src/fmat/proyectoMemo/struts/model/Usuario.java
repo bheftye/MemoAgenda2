@@ -29,22 +29,19 @@ public class Usuario {
 
 	public Usuario(){}
 	
-<<<<<<< HEAD
+
 	public Usuario(int idUsuario, String nombre, String alias) {
 		// TODO Auto-generated constructor stub
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.alias = alias;
-=======
-	
-	
+	}
 	public ArrayList<ListaDeTareas> getLdts() {
 		return ldts;
 	}
 
 	public void setLdts(ArrayList<ListaDeTareas> ldts) {
 		this.ldts = ldts;
->>>>>>> 3fc5b713ed599f05f1fb1ccd416b499fc7f3dabb
 	}
 
 	public ArrayList<Usuario> getContactos() {

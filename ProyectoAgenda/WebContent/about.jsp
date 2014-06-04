@@ -22,8 +22,6 @@
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
 				<div class="connect">
-					<a href="http://freewebsitetemplates.com/go/facebook/" id="fb">facebook</a>
-					<a href="http://freewebsitetemplates.com/go/twitter/" id="twitter">twitter</a>
 				</div>
 			</div>
 			<div class="body">
