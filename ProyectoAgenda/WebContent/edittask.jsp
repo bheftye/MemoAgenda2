@@ -51,7 +51,7 @@
 				<div class="content-blog">
 					<div>
 						<div>
-							<h3>Agregar Tarea</h3>
+							<h3>Editar Tarea</h3>
 							<s:form action="agregarTarea" method="post">
 								<s:hidden name="ldt.idCreador" value="#session['usuario'].idUsuario" />
 								<s:hidden name="ldt.idLDT" value="ldt.idLDT"/> 

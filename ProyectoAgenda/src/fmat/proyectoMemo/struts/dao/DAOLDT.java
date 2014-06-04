@@ -11,6 +11,7 @@ public class DAOLDT extends DAOBase{
 	public boolean insertarLDT(ListaDeTareas ldt){
 		boolean insercionExitosa = false;
 		String sql = "INSERT INTO `listas_tareas`( `nombre`, `fecha_limite`, `id_creador`) VALUES ('"+ldt.getNombre()+"','"+ldt.getFechLimite()+"','"+ldt.getIdCreador()+")";
+		System.out.println(sql);
 		try{
 			Statement st = connection.createStatement();
 			st.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);

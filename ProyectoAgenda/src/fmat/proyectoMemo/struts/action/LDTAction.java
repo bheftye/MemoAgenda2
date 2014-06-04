@@ -22,29 +22,32 @@ public class LDTAction extends ActionSupport implements SessionAware{
 	private Tarea tarea;
 	
 	public String agregarLDT(){
-		if(ldt.getFechLimite().equals("") && ldt.getIdCreador() != 0 && ldt.getNombre().equals("")){
+		if(!(ldt.getFechLimite().equals("") && ldt.getIdCreador() != 0 && ldt.getNombre().equals(""))){
 			DAOLDT dao = new DAOLDT();
 			boolean insercionExitosa = dao.insertarLDT(ldt);
 			if(insercionExitosa){
 				return "editLDT";
 			}
 		}
+		addActionError("Llena todos los campos para continuar.");
 		return "addLDT";
 	}
 	
 	public String modificarLDT(){
-		if(ldt.getFechLimite().equals("") && ldt.getNombre().equals("")){
+		if(!ldt.getFechLimite().equals("") && !ldt.getNombre().equals("")){
 			DAOLDT dao = new DAOLDT();
 			boolean insercionExitosa = dao.insertarLDT(ldt);
 			if(insercionExitosa){
+				addActionError("Cambio realizado correctamente.");
 				return "editLDT";
 			}
 		}
-		return "addLDT";
+		addActionError("Cambio no realizado correctamente.");
+		return "editLDT";
 	}
 	
 	public String insertarTarea(){
-		if(tarea.getNombre().equals("") && tarea.getDescripcion().equals("")){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("")){
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.insertarTarea(tarea);
 			if(insercionExitosa){
@@ -55,7 +58,7 @@ public class LDTAction extends ActionSupport implements SessionAware{
 	}
 	
 	public String modificarTarea(){
-		if(tarea.getNombre().equals("") && tarea.getDescripcion().equals("")){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("")){
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.modificarTarea(tarea);
 			if(insercionExitosa){
