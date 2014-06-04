@@ -65,6 +65,13 @@
 			<result name="editGroup">/editgroup.jsp</result>
 			<result name="about">/about.jsp</result>
 		</action>
+		
+		<action name="agregarLDT"
+			class="fmat.proyectoMemo.struts.action.LDTAction" method="agregarLDT">
+			<result name="editLDT">/edittasklist.jsp</result>
+			<result name="addLDT">/addtasklist.jsp</result>
+		</action>
+		
 
 		<action name="cerrarSesion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
 			method="cerrarSesion">
