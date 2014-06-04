@@ -29,13 +29,21 @@ public class Usuario {
 
 	public Usuario(){}
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
 	public Usuario(int idUsuario, String nombre, String alias) {
 		// TODO Auto-generated constructor stub
 		this.idUsuario = idUsuario;
 		this.nombre = nombre;
 		this.alias = alias;
+<<<<<<< HEAD
 	}	
 	
+=======
+	}
+>>>>>>> FETCH_HEAD
 	public ArrayList<ListaDeTareas> getLdts() {
 		return ldts;
 	}

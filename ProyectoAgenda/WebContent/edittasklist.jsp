@@ -96,7 +96,7 @@
 									
 									<tr>
 										<td><label>*Descripción:</label></td>
-										<td><s:textarea  name="tarea.descripcion"  /></td>
+										<td><s:textarea  name="tarea.descripcion" cols="27" rows="10" /></td>
 									</tr>
 									<tr>
 										<td></td>
