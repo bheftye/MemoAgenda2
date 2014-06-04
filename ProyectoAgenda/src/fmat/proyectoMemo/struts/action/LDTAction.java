@@ -22,36 +22,82 @@ public class LDTAction extends ActionSupport implements SessionAware{
 	private Tarea tarea;
 	
 	public String agregarLDT(){
-		if(ldt.getFechLimite().equals("") && ldt.getIdCreador() != 0 && ldt.getNombre().equals("")){
+		if(!(ldt.getFechLimite().equals("") && ldt.getIdCreador() != 0 && ldt.getNombre().equals(""))){
 			DAOLDT dao = new DAOLDT();
 			boolean insercionExitosa = dao.insertarLDT(ldt);
 			if(insercionExitosa){
 				return "editLDT";
 			}
 		}
+		addActionError("Llena todos los campos para continuar.");
 		return "addLDT";
 	}
 	
 	public String modificarLDT(){
-		if(ldt.getFechLimite().equals("") && ldt.getNombre().equals("")){
+		if(!ldt.getFechLimite().equals("") && !ldt.getNombre().equals("")){
 			DAOLDT dao = new DAOLDT();
 			boolean insercionExitosa = dao.insertarLDT(ldt);
 			if(insercionExitosa){
+				addActionError("Cambio realizado correctamente.");
 				return "editLDT";
 			}
 		}
-		return "addLDT";
+		addActionError("Cambio no realizado correctamente.");
+		return "editLDT";
 	}
 	
-	public String insertarTarea(){
-		if(tarea.getNombre().equals("") && tarea.getDescripcion().equals("")){
+	public String agregarTarea(){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("")){
 			DAOTarea dao = new DAOTarea();
 			boolean insercionExitosa = dao.insertarTarea(tarea);
+			if(insercionExitosa){
+				ldt = new ListaDeTareas();
+				ldt.setIdLDT(tarea.getIdLDT());
+				this.actualizarLDT();
+				return "editLDT";
+			}
+		}
+		addActionError("No se creo la tarea.");
+		return "editLDT";
+	}
+	
+	public void actualizarLDT(){
+		if(ldt != null && ldt.getIdLDT() != 0){
+			DAOLDT dao = new DAOLDT();
+			ldt = dao.obtenerLDTPorId(ldt.getIdLDT());
+		}
+	}
+	
+	public String mostrarLDT(){
+		if(ldt.getIdLDT() != 0){
+			DAOLDT dao = new DAOLDT();
+			ldt = dao.obtenerLDTPorId(ldt.getIdLDT());
+			return "editLDT";
+		}
+		addActionError("No se pudo mostrar la LDT.");
+		return "about";
+	}
+	
+	public String modificarTarea(){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("")){
+			DAOTarea dao = new DAOTarea();
+			boolean insercionExitosa = dao.modificarTarea(tarea);
 			if(insercionExitosa){
 				return "editLDT";
 			}
 		}
-		return "addLDT";
+		addActionError("No se realizó la operación");
+		return "editTask";
+	}
+	
+	public String mostrarTarea(){
+		if(!tarea.getNombre().equals("") && !tarea.getDescripcion().equals("") && (tarea.getIdTarea() != 0)){
+			DAOTarea dao = new DAOTarea();
+			this.tarea = dao.obtenerTareaPorId(tarea.getIdTarea());
+			return "editTask";
+		}
+		addActionError("No se realizó la operación");
+		return "editLDT";
 	}
 	
 	

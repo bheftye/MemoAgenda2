@@ -28,7 +28,7 @@
 	<div class="page">
 		<div class="blog-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class=" home"><a href="index.jsp">Inicio</a></li>
@@ -52,9 +52,9 @@
 					<div>
 						<div>
 							<h3>Agregar lista de tareas</h3>
-							<div style="color: red">${errorMessage}</div>
+							<s:actionerror/>
 							<s:form action="agregarLDT" method="post">
-								<s:hidden name="ldt.idCreador" value="#session['usuario'].idUsuario" />
+								<s:hidden name="ldt.idCreador" value="%{#session['usuario'].idUsuario}" />
 								<table style="margin-left: 10px;">
 									<tr>
 										<td><label>*Nombre de la lista de tareas: </label></td>
@@ -76,15 +76,6 @@
 
 						</div>
 						<div class="sidebar">
-							<div>
-								<h3>Buscar evento</h3>
-								<form action="index.html">
-									<input type="text" value="Búsqueda"
-										onblur="this.value=!this.value?'Busqueda':this.value;"
-										onfocus="this.select()" onclick="this.value='';"> <input
-										type="submit" value="">
-								</form>
-							</div>
 							<div class="blog-categories">
 								<a href="addevent.jsp" style="text-decoration: none"><h3>Agregar
 										evento</h3></a>

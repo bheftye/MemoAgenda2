@@ -20,6 +20,9 @@ public class Tarea {
 		this.idResponsable = idResponsable;
 		this.status = status;
 	}
+	
+	public Tarea(){}
+	
 	public int getIdTarea() {
 		return idTarea;
 	}

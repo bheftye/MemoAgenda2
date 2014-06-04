@@ -11,9 +11,10 @@ public class Usuario {
 	private String foto;
 	private ArrayList<Usuario> contactos;
 	private ArrayList<Grupo> grupos;
+	private ArrayList<ListaDeTareas> ldts;
 	
 	public Usuario(int idUsuario, String alias, String contrasena,
-			String nombre, String correo, String foto, ArrayList<Usuario> contactos, ArrayList<Grupo> grupos) {
+			String nombre, String correo, String foto, ArrayList<Usuario> contactos, ArrayList<Grupo> grupos,ArrayList<ListaDeTareas> ldts) {
 		super();
 		this.idUsuario = idUsuario;
 		this.alias = alias;
@@ -23,10 +24,34 @@ public class Usuario {
 		this.foto = foto;
 		this.contactos = contactos;
 		this.grupos = grupos;
+		this.ldts = ldts;
 	}
 
 	public Usuario(){}
 	
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
+	public Usuario(int idUsuario, String nombre, String alias) {
+		// TODO Auto-generated constructor stub
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.alias = alias;
+<<<<<<< HEAD
+	}	
+	
+=======
+	}
+>>>>>>> FETCH_HEAD
+	public ArrayList<ListaDeTareas> getLdts() {
+		return ldts;
+	}
+
+	public void setLdts(ArrayList<ListaDeTareas> ldts) {
+		this.ldts = ldts;
+	}
+
 	public ArrayList<Usuario> getContactos() {
 		return contactos;
 	}
