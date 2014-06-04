@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/addevent.jsp=UTF-8
 encoding//src/fmat/proyectoMemo/servlets/AddEventServlet.java=UTF-8
 encoding//src/fmat/proyectoMemo/struts/action/GrupoAction.java=UTF-8
 encoding//src/fmat/proyectoMemo/struts/action/UsuarioAction.java=UTF-8

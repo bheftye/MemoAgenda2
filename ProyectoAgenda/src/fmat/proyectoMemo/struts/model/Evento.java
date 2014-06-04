@@ -10,7 +10,6 @@ public class Evento {
 	private int id_integrante;
 	private int id_creador;
 	private int id_grupo;
-	private String recordatorio;
 
 	public Evento() {
 		super();
@@ -156,15 +155,6 @@ public class Evento {
 		this.id_grupo = id_grupo;
 	}
 
-
-	public String getRecordatorio() {
-		return recordatorio;
-	}
-
-
-	public void setRecordatorio(String recordatorio) {
-		this.recordatorio = recordatorio;
-	}
 
 
 }

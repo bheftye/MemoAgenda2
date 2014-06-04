@@ -34,8 +34,6 @@
 					<li class=" home"><a href="index.jsp">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="selected blog"><a href="blog.jsp">Agenda</a></li>
-					<li class="projects"><a href="projects.html">Ajustes</a></li>
-					<li class="contact"><a href="contact.html">Contacto</a></li>
 				</ul>
 				<div class="connect">
 					<a href="#" id="fb">facebook</a> <a href="#" id="twitter">twitter</a>
@@ -46,7 +44,7 @@
 					Bienvenido
 					<s:property value="#session['usuario'].alias" />
 					|
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
+					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesiï¿½n</s:a>
 				</div>
 				<div class="content-blog">
 					<div>
@@ -64,7 +62,7 @@
 										<td><input type="text" name="nombre" size="31"></td>
 									</tr>
 									<tr>
-										<td><label>Descripción: </label></td>
+										<td><label>Descripciï¿½n: </label></td>
 										<td><textarea name="descripcion" cols="23" rows="10"></textarea></td>
 									</tr>
 									<tr>
@@ -77,7 +75,7 @@
 											id="datepicker" size="31"></td>
 									</tr>
 									<tr>
-										<td><label>*Fecha de finalización:</label></td>
+										<td><label>*Fecha de finalizaciï¿½n:</label></td>
 										<td><input type="text" name="fecha_final"
 											id="datepickers" size="31"></td>
 									</tr>
@@ -90,44 +88,13 @@
 										<td><input type="text" name="hora_final" size="31"></td>
 									</tr>
 									<tr>
-										<td><label>*Repetición de evento:</label></td>
-									</tr>
-									<tr>
-										<td></td>
-										<td><input type="radio" name="repeticion" value="0">Ninguno</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td><input type="radio" name="repeticion" value="1">Diario</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td><input type="radio" name="repeticion" value="2">Cada
-											semana</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td><input type="radio" name="repeticion" value="3">Cada
-											mes</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td><input type="radio" name="repeticion" value="4">Cada
-											año</td>
-									</tr>
-									<tr>
-										<td></td>
-										<td>Hasta: <input type="text" name="hasta_fecha"
-											id="datepicker3" size="31"></td>
-									</tr>
-									<tr>
 										<td><label>Invitar usuarios:</label></td>
 									</tr>
 									<utils:showFriends />
-									<!-- 	<tr>
+									<tr>
 										<td><label>Invitar grupos:</label></td>
 									</tr>
-									  	<utils:showGroups />-->
+									<utils:showGroups />
 									<tr>
 										<td></td>
 										<td align="right"><input type="submit"
@@ -141,7 +108,7 @@
 							<div>
 								<h3>Buscar evento</h3>
 								<form action="index.html">
-									<input type="text" value="Búsqueda"
+									<input type="text" value="Bï¿½squeda"
 										onblur="this.value=!this.value?'Busqueda':this.value;"
 										onfocus="this.select()" onclick="this.value='';"> <input
 										type="submit" value="">
@@ -152,7 +119,7 @@
 										evento</h3></a>
 							</div>
 							<div>
-								<a href="addtasklist.jsp"><h3>Agregar lista de tareas</h3></a>
+								<h3>Agregar lista de tareas</h3>
 								<br /> <br /> <br /> <br />
 							</div>
 						</div>
@@ -163,9 +130,7 @@
 					<ul>
 						<li><a href="index.jsp">Inicio</a></li>
 						<li><a href="about.jsp">Perfil</a></li>
-						<li><a href="projects.jsp">Agenda</a></li>
-						<li><a href="blog.jsp">Ajustes</a></li>
-						<li><a href="contact.html">Contacto</a></li>
+						<li><a href="blog.jsp">Agenda</a></li>
 					</ul>
 				</div>
 			</div>
