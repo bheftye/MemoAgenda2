@@ -10,6 +10,7 @@ public class Evento {
 	private int id_integrante;
 	private int id_creador;
 	private int id_grupo;
+	private String descripcion;
 
 	public Evento() {
 		super();
@@ -32,7 +33,7 @@ public class Evento {
 	
 	public Evento(int id_creador, String nombre, String fecha_inicio,
 			String fecha_final, String hora_inicio, String hora_final,
-			String ubicacion) {
+			String ubicacion, String descripcion) {
 		super();
 		this.nombre = nombre;
 		this.fecha_inicio = fecha_inicio;
@@ -41,6 +42,7 @@ public class Evento {
 		this.hora_final = hora_final;
 		this.ubicacion = ubicacion;
 		this.id_creador = id_creador;
+		this.setDescripcion(descripcion);
 	}
 
 
@@ -153,6 +155,16 @@ public class Evento {
 	}
 	public void setId_grupo(int id_grupo) {
 		this.id_grupo = id_grupo;
+	}
+
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 

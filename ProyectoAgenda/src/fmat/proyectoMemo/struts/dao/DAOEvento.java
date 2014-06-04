@@ -15,9 +15,9 @@ public class DAOEvento extends DAOBase{
 	public boolean agregarEvento(Evento evento) {
 		boolean oprExitosa = false;
 		String sql = "INSERT INTO `eventos`("
-				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
+				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`,`descripcion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
-				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\")";
+				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
 			Statement statement = connection.createStatement();
 			int id_evento = statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -36,7 +36,7 @@ public class DAOEvento extends DAOBase{
 		String sql = "INSERT INTO `eventos`("
 				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
-				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\")";
+				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -61,7 +61,7 @@ public class DAOEvento extends DAOBase{
 		String sql = "INSERT INTO `eventos`("
 				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
-				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\")";
+				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
@@ -110,7 +110,7 @@ public class DAOEvento extends DAOBase{
 		String sql = "INSERT INTO `eventos`("
 				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
 				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
-				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\")";
+				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \""+ evento.getUbicacion()+"\",\"" + evento.getDescripcion()+"\")";
 		try {
 			Statement statement = connection.createStatement();
 			statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);

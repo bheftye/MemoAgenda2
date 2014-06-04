@@ -62,7 +62,7 @@
 										<td><input type="text" name="nombre" size="31"></td>
 									</tr>
 									<tr>
-										<td><label>Descripción: </label></td>
+										<td><label>Descripci&oacute;n: </label></td>
 										<td><textarea name="descripcion" cols="23" rows="10"></textarea></td>
 									</tr>
 									<tr>
@@ -75,7 +75,7 @@
 											id="datepicker" size="31"></td>
 									</tr>
 									<tr>
-										<td><label>*Fecha de finalización:</label></td>
+										<td><label>*Fecha de finalizaci&oacute;n:</label></td>
 										<td><input type="text" name="fecha_final"
 											id="datepickers" size="31"></td>
 									</tr>

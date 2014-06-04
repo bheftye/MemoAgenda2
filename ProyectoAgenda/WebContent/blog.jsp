@@ -31,13 +31,13 @@
 				<div class="login">
 					Bienvenido
 					<s:property value="#session['usuario'].alias" /> |
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
+					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi&oacute;n</s:a>
 				</div>
 				<div class="content-blog">
 					<div>
 						<div>
 							<h3>Agenda</h3>
-							<div style="color: red">${successMessage}</div>
+							<div style="color: black;">${successMessage}</div>
 
 							<center>
 								<p>
