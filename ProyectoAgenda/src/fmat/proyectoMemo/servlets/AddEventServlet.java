@@ -92,7 +92,7 @@ public class AddEventServlet extends HttpServlet {
 						if((integrantes != null ) && (grupos != null)){
 							Evento evento = new Evento(id_creador,nombre, fecha_inicio,fecha_final, hora_inicio, hora_final, ubicacion);
 							result = daoEv.agregarEventoGrupos(evento,grupos);
-							boolean result2 = daoEv.agregarEventoIntegrantes(evento, integrantes);
+							boolean result2 = daoEv.agregarEventoIntegrantesyGrupo(evento, integrantes,grupos);
 							if(result && result2){
 								request.setAttribute("successMessage", "El evento se agregó correctamente. <br /><br />");
 								request.getRequestDispatcher("blog.jsp").forward(request, response);

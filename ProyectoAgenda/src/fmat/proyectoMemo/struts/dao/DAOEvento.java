@@ -55,6 +55,33 @@ public class DAOEvento extends DAOBase{
 		}
 		return oprExitosa;
 	}
+	
+	public boolean agregarEventoIntegrantesyGrupo(Evento evento, String[] integrantes, String[] grupos) {
+		boolean oprExitosa = false;
+		String sql = "INSERT INTO `eventos`("
+				+ "`id_creador`, `nombre`, `fecha_inicio`,`fecha_final`,`hora_inicio`, `hora_final`,`ubicacion`) "
+				+ "VALUES (" + evento.getId_creador() + ",\"" + evento.getNombre()
+				+ "\"," + "\"" + evento.getFecha_inicio() + "\",\""+evento.getFecha_final()+"\""+ ",\""+evento.getHora_inicio()+"\", \""+evento.getHora_final()+"\", \"" + evento.getUbicacion()+"\")";
+		try {
+			Statement statement = connection.createStatement();
+			statement.executeUpdate(sql, Statement.RETURN_GENERATED_KEYS);
+			ResultSet res = statement.getGeneratedKeys();
+			int id_evento = 0;
+			if(res.next()){
+				id_evento = res.getInt(1);
+			}
+			evento.setId_evento(id_evento);
+			boolean agregados = agregarIntegrantesaEvento(evento.getId_evento(), integrantes);
+			boolean gruposAg = agregarGruposaEvento(evento.getId_evento(), grupos);
+			
+			if(id_evento != 0 && agregados && gruposAg){
+				oprExitosa = true;
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+		return oprExitosa;
+	}
 
 
 
