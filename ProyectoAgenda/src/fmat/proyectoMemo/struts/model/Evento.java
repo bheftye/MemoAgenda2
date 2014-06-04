@@ -30,6 +30,21 @@ public class Evento {
 		this.ubicacion = ubicacion;
 		this.id_creador = id_creador;
 	}
+	public Evento(int id_evento,int id_creador, String nombre, String fecha_inicio,
+			String fecha_final, String hora_inicio, String hora_final,
+			String ubicacion, String descripcion) {
+		super();
+		this.id_evento = id_evento;
+		this.nombre = nombre;
+		this.fecha_inicio = fecha_inicio;
+		this.fecha_final = fecha_final;
+		this.hora_inicio = hora_inicio;
+		this.hora_final = hora_final;
+		this.ubicacion = ubicacion;
+		this.id_creador = id_creador;
+		this.setDescripcion(descripcion);
+
+	}
 	
 	public Evento(int id_creador, String nombre, String fecha_inicio,
 			String fecha_final, String hora_inicio, String hora_final,
@@ -165,6 +180,18 @@ public class Evento {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Evento [id_evento=" + id_evento + ", nombre=" + nombre
+				+ ", fecha_inicio=" + fecha_inicio + ", fecha_final="
+				+ fecha_final + ", hora_inicio=" + hora_inicio
+				+ ", hora_final=" + hora_final + ", ubicacion=" + ubicacion
+				+ ", id_integrante=" + id_integrante + ", id_creador="
+				+ id_creador + ", id_grupo=" + id_grupo + ", descripcion="
+				+ descripcion + "]";
 	}
 
 
