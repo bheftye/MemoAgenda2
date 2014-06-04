@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
-	
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -27,18 +27,23 @@
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
-				<div class="connect">
-				</div>
+				<div class="connect"></div>
 			</div>
 			<div class="body">
 				<div class="login">
-				
-					Bienvenido <s:property value="#session['usuario'].alias" /> | 					
-					
+
+					Bienvenido
+					<s:property value="#session['usuario'].alias" />|
+					<!--  
 					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
-				
-					
+					-->
+					<s:url action="cerrarSesion" var="linkCerrar">
+					</s:url>
+					<p>
+						<a href="${linkCerrar}">Cerrar sesión</a>
+					</p>
 				</div>
+
 				<div class="content-home">
 					<div class="featured">
 						<img src="images/memo-home.png" alt="">
