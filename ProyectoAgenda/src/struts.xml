@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.action.excludePattern" value="/addEvent" />
+	
+	<package name="basicstruts2" extends="struts-default">
+		<action name="index">
+			<result>/index.jsp</result>
+		</action>
+
+		<!-- <action name="*Usuario" class="fmat.proyectoMemo.struts.action.UsuarioAction" 
+			method="{1}"> <result name="inicio">/portal.jsp</result> </action> -->
+
+		<action name="iniciarSesion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="iniciarSesion">
+			<result name="portal">/portal.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="registrarUsuario" class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="registrarUsuario">
+			<result name="portal">/portal.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+
+		<action name="modificarInformacion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="modificarInformacion">
+			<result name="editInfo">/editinfo.jsp</result>
+		</action>
+
+		<action name="buscarUsuario" class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="buscarUsuario">
+			<result name="addContact">/addcontact.jsp</result>
+		</action>
+
+		
+		<action name="agregarAmigo"
+			class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="agregarAmigo">
+			<result name="addContact">/addcontact.jsp</result>
+		</action>
+		
+		<action name="modificarContrasena"
+			class="fmat.proyectoMemo.struts.action.UsuarioAction" method="modificarContrasena">
+			<result name="editInfo">/editinfo.jsp</result>
+			<result name="login">/login.jsp</result>
+		</action>
+		
+		<action name="crearGrupo"
+			class="fmat.proyectoMemo.struts.action.GrupoAction" method="crearGrupo">
+			<result name="editGroup">/editgroup.jsp</result>
+			<result name="createGroup">/addgroup.jsp</result>
+		</action>
+		
+		<action name="agregarIntegrante"
+			class="fmat.proyectoMemo.struts.action.GrupoAction" method="agregarIntegrante">
+			<result name="editGroup">/editgroup.jsp</result>
+		</action>
+		
+		<action name="mostrarGrupo"
+			class="fmat.proyectoMemo.struts.action.GrupoAction" method="mostrarGrupo">
+			<result name="editGroup">/editgroup.jsp</result>
+			<result name="about">/about.jsp</result>
+		</action>
+
+		<action name="cerrarSesion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
+			method="cerrarSesion">
+			<result name="index">/index.jsp</result>
+		</action>
+
+	</package>
+
+</struts>

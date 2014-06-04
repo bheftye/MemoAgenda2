@@ -1,0 +1,85 @@
+@CHARSET "ISO-8859-1";
+
+@font-face {
+	font-family: 'AbelRegular';
+	src: url('../fonts/abel-regular-webfont.eot');
+	src: url('../fonts/abel-regular-webfont.eot?#iefix')
+		format('embedded-opentype'), url('../fonts/abel-regular-webfont.woff')
+		format('woff'), url('../fonts/abel-regular-webfont.ttf')
+		format('truetype'),
+		url('../fonts/abel-regular-webfont.svg#AbelRegular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'AbelRegular';
+}
+
+table {
+	font-family: 'AbelRegular';
+	border-collapse: collapse;
+	border: none;
+	margin-left: -5px;
+}
+
+th.calendar {
+	border: none;
+	font: 12pt 'AbelRegular';
+	font-weight: bold;
+	color: black;
+	background-color: white;
+}
+
+td.weekday {
+	font: 14pt 'AbelRegular';
+	text-align: right;
+	vertical-align: top;
+	height: 70;
+	background-color: #AEC066;
+	border-color: white;
+	width: 50px;
+	height: 100px;
+}
+
+td.weekend {
+	font: 14pt 'AbelRegular';
+	text-align: right;
+	vertical-align: top;
+	height: 70;
+	background-color: #528846;
+	border-color: white;
+}
+
+th.navigation {
+	font-weight: bold;
+	text-align: center
+}
+
+td.navigation {
+	font: 14pt 'AbelRegular';
+	font-weigth: bold;
+	text-align: center
+}
+
+td.today {
+	font: 14pt 'AbelRegular';
+	text-align: right;
+	vertical-align: top;
+	height: 70;
+	background-color: #CE4718;
+	color: white;
+}
+
+input.submit {
+	background-color: #DD8514;
+	border: 0px none;
+	color: #FFF;
+	cursor: pointer;
+	font-family: 'AbelRegular';
+	font-size: 14px;
+	height: 23px;
+	line-height: 0;
+	margin: 0px;
+	width: 85px;
+}
