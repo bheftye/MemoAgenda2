@@ -28,17 +28,14 @@
 	<div class="page">
 		<div class="blog-page">
 			<div class="sidebar">
-				<a href="index.html" id="logo"><img src="images/logo.png"
+				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
 					<li class=" home"><a href="index.jsp">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="selected blog"><a href="blog.jsp">Agenda</a></li>
-					<li class="projects"><a href="projects.html">Ajustes</a></li>
-					<li class="contact"><a href="contact.html">Contacto</a></li>
 				</ul>
 				<div class="connect">
-					<a href="#" id="fb">facebook</a> <a href="#" id="twitter">twitter</a>
 				</div>
 			</div>
 			<div class="body">
@@ -100,9 +97,7 @@
 					<ul>
 						<li><a href="index.jsp">Inicio</a></li>
 						<li><a href="about.jsp">Perfil</a></li>
-						<li><a href="projects.jsp">Agenda</a></li>
-						<li><a href="blog.jsp">Ajustes</a></li>
-						<li><a href="contact.html">Contacto</a></li>
+						<li><a href="blog.jsp">Agenda</a></li>
 					</ul>
 				</div>
 			</div>
