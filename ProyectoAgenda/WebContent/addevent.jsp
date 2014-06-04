@@ -44,7 +44,7 @@
 					Bienvenido
 					<s:property value="#session['usuario'].alias" />
 					|
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi�n</s:a>
+					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi&oacute;n</s:a>
 				</div>
 				<div class="content-blog">
 					<div>

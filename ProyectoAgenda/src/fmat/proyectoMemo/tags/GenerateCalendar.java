@@ -16,14 +16,17 @@ import javax.servlet.jsp.tagext.TagSupport;
 
 @SuppressWarnings("serial")
 public class GenerateCalendar extends TagSupport {
+	GregorianCalendar greg = new GregorianCalendar();
 	Date date = new Date();
-	@SuppressWarnings("deprecation")
-	int today = date.getDate();
+	int today = greg.get(Calendar.DATE);
+	int month =greg.get(Calendar.MONTH);
+	int year = greg.get(Calendar.YEAR);
+	
+	
 
 
 	public int doStartTag() throws JspException {
 		GregorianCalendar	cal = null;
-
 		cal = (GregorianCalendar) pageContext.getAttribute( "date",
 				PageContext.SESSION_SCOPE );
 		if( cal == null )
@@ -55,7 +58,8 @@ public class GenerateCalendar extends TagSupport {
 		out.println( "</tr>" );
 		out.println( "<tr>" );
 		for( i = 1; i <= 7; i++ ) {
-			if( cal.get( Calendar.DATE ) == today){
+			if( (cal.get( Calendar.DATE ) == today) && (cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
+				System.out.println("Fecha 2: " + cal.get( Calendar.DATE ) +"/"+ cal.get(Calendar.MONTH) +"/" + year);
 				out.print( getHeaderToday() );
 				}else{
 					out.print( getHeader( i ));
@@ -74,7 +78,7 @@ public class GenerateCalendar extends TagSupport {
 			out.println( "<tr>" );
 			for( i = 1; i <= 7; i++ ) {
 				if( mon == cal.get( Calendar.MONTH ) ) {
-					if(cal.get( Calendar.DATE ) == today){
+					if( (cal.get( Calendar.DATE ) == today) && (cal.get(Calendar.MONTH) == month) && (cal.get(Calendar.YEAR) == year)){
 						out.print( getHeaderToday() );
 						out.print( cal.get( Calendar.DATE ) );
 						cal.add( Calendar.DATE, 1 );
