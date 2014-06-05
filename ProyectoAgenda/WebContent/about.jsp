@@ -17,7 +17,7 @@
 				<a href="`portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
-					<li class="home"><a href="portal.jsp">Inicio</a></li>
+					<li class="home"><a href="index.jsp">Inicio</a></li>
 					<li class=" selected about"><a href="about.jsp">Perfil</a></li>
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
@@ -26,11 +26,7 @@
 			</div>
 			<div class="body">
 				<div class="login">
-					Bienvenido
-					<s:property value="#session['usuario'].alias" />
-					|
-
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
+					<a href="login.jsp" id="login">Iniciar sesión | Registrarse</a>
 				</div>
 				<div class="content-about">
 					<div>

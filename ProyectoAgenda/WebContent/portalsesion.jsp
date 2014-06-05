@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-
-<%@ taglib prefix="s" uri="/struts-tags"%>
-
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>MEMO | Agenda en Línea</title>
-
-<link rel="stylesheet" href="css/style.css" type="text/css">
-<link rel="icon" type="image/png" href="images/favicon-memo.png">
-
+<title>Insert title here</title>
 </head>
+<body>
+
 <body>
 
 	<div id="background-green">background</div>
@@ -25,8 +20,6 @@
 					<li class="selected home"><a href="index.html">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
-					<li class="projects"><a href="projects.html">Ajustes</a></li>
-					<li class="contact"><a href="contact.html">Contacto</a></li>
 				</ul>
 				<div class="connect">
 					<a href="http://www.facebook.com" id="fb">facebook</a>
@@ -36,6 +29,8 @@
 			<div class="body">
 				<div class="login">
 					<a href="login.jsp" id="login">Iniciar sesión | Registrarse</a>
+					<br>
+					Debes iniciar sesión para acceder a esta sección
 				</div>
 				<div class="content-home">
 					<div class="featured">
@@ -69,6 +64,8 @@
 			</div>
 		</div>
 	</div>
+
+</body>
 
 </body>
 </html>

@@ -21,8 +21,6 @@ public class ShowFriends extends TagSupport {
 		return( SKIP_BODY );
 	}
 
-
-
 	private void generate(JspWriter out, HttpSession session) {
 		// TODO Auto-generated method stub
 		String preffix ="<tr><td></td><td><input type=\"checkbox\" name=\"integrantes\" value=\"";

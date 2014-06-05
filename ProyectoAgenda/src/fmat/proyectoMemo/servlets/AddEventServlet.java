@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,7 +19,7 @@ import fmat.proyectoMemo.struts.dao.DAOEvento;
 import fmat.proyectoMemo.struts.model.Evento;
 
 @WebServlet("/addEvent")
-public class AddEventServlet extends HttpServlet {
+public class AddEventServlet extends HttpServlet implements Servlet{
 	DAOEvento daoEv = new DAOEvento();
 	/**
 	 * 

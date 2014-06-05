@@ -17,7 +17,7 @@ import fmat.proyectoMemo.struts.model.Usuario;
 /**
  * Servlet Filter implementation class UsuarioFilter
  */
-@WebFilter("/UsuarioFilter")
+@WebFilter(urlPatterns = {"/addEvent","/showInfo"})
 public class UsuarioFilter implements Filter {
 
     /**
@@ -42,11 +42,15 @@ public class UsuarioFilter implements Filter {
 		// place your code here
 
 		Usuario usuario = (Usuario) ((HttpServletRequest)request).getSession().getAttribute("usuario");
-		if(usuario!=null){
+		int id = usuario.getIdUsuario();
+		System.out.println("ID"+id);
+		if(usuario!=null && id!=0){
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
 		}else{
+			if(id == 0){
 			((HttpServletResponse) response).sendRedirect("/portalsesion.jsp");
+			}
 		}
 	}
 

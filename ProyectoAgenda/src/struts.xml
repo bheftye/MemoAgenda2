@@ -6,7 +6,7 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.action.excludePattern" value="/showInfo, /addEvent" />
 	
-		
+
 	<package name="basicstruts2" extends="struts-default">
 		
 		<interceptors>
@@ -27,9 +27,6 @@
 		<action name="index">
 			<result>/index.jsp</result>
 		</action>
-
-		<!-- <action name="*Usuario" class="fmat.proyectoMemo.struts.action.UsuarioAction" 
-			method="{1}"> <result name="inicio">/portal.jsp</result> </action> -->
 		
 		<action name="iniciarSesion" class="fmat.proyectoMemo.struts.action.UsuarioAction"
 			method="iniciarSesion">
@@ -54,7 +51,6 @@
 			<result name="addContact">/addcontact.jsp</result>
 		</action>
 
-		
 		<action name="agregarAmigo"
 			class="fmat.proyectoMemo.struts.action.UsuarioAction"
 			method="agregarAmigo">

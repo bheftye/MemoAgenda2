@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<%@ taglib uri="WEB-INF/utils.tld" prefix="utils"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="/WEB-INF/utils.tld" prefix="utils"%>
+<%@ taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +16,7 @@
 				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
-					<li class=" home"><a href="index.jsp">Inicio</a></li>
+					<li class="home"><a href="index.jsp">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="selected blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
@@ -27,7 +27,9 @@
 				<div class="login">
 					Bienvenido
 					<s:property value="#session['usuario'].alias" /> |
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesi&oacute;n</s:a>
+					<s:url action="cerrarSesion" var="linkCerrar">
+					</s:url>
+					<a href="${linkCerrar}">Cerrar sesión</a>
 				</div>
 				<div class="content-blog">
 					<div>
@@ -35,7 +37,9 @@
 							<h3>Agenda</h3>
 							<div style="color: black;">${successMessage}</div>
 								<p>
-								<center><utils:setDate /></center>	
+								<center>
+								<utils:setDate/>
+								</center>	
 								<p>
 								<form>
 									<table width="500" border="2">

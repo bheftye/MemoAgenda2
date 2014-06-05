@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	
+
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -22,11 +22,8 @@
 					<li class="home"><a href="index.jsp">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
-					<li class="projects"><a href="projects.html">Ajustes</a></li>
-					<li class="contact"><a href="contact.html">Contacto</a></li>
 				</ul>
-				<div class="connect">
-				</div>
+				<div class="connect"></div>
 			</div>
 			<div class="body">
 				<div class="login">
@@ -36,70 +33,51 @@
 					<div>
 						<table>
 							<tr>
-								<td><h3 style="margin-top:50px;">Iniciar sesión</h3>
-									
-									<!-- 
-									<form action="login">
-										 -->
-										 
-										<h4 >Escribe tu alias y contrase&ntilde;a para iniciar
-											sesi&oacute;n</h4>
-										
-											<s:actionerror />
-											<s:form action="iniciarSesion">
-											
-											<s:textfield name="usuario.alias" placeholder="Alias*"
-											onFocus="this.select()" 
+								<td><h3 style="margin-top: 50px;">Iniciar sesión</h3>
+
+									<h4>Escribe tu alias y contrase&ntilde;a para iniciar
+										sesi&oacute;n</h4> <s:actionerror /> <s:form
+										action="iniciarSesion">
+
+										<s:textfield name="usuario.alias" placeholder="Alias*"
+											onFocus="this.select()" onClick="this.value='';" />
+
+										<s:password name="usuario.contrasena"
+											placeholder="Contraseña*" onFocus="this.select()"
 											onClick="this.value='';" />
-											
-											<s:password name="usuario.contrasena"  placeholder="Contraseña*"
-											onFocus="this.select()" 
-											onClick="this.value='';" />
-											
-											<s:submit  cssClass="submit"
-											value="Iniciar sesión" />
-											</s:form>
-										
-										<p>
-											<a href="#">¿Olvidaste tu contraseña?</a>
-										</p>
-										
-									<!--  	
-									</form>
-									-->
-									
-									</td>
-								
+
+										<s:submit cssClass="submit" value="Iniciar sesión" />
+									</s:form>
+
+									<p>
+										<a href="#">¿Olvidaste tu contraseña?</a>
+									</p></td>
+
 								<td class="linea"><h3 class="registro">Registro</h3>
-										<h4>Escribe tu nombre, contrase&ntilde;a y correo
-											electr&oacute;nico para registrarte.</h4>										
-											
-											<s:actionerror />
-											<s:form action="registrarUsuario">
-											
-											<s:textfield name="usuario.nombre" placeholder="Nombre*"
-											onFocus="this.select()" 
+									<h4>Escribe tu nombre, contrase&ntilde;a y correo
+										electr&oacute;nico para registrarte.</h4> <s:actionerror /> <s:form
+										action="registrarUsuario">
+
+										<s:textfield name="usuario.nombre" placeholder="Nombre*"
+											onFocus="this.select()" onClick="this.value='';" />
+
+										<s:textfield name="usuario.correo"
+											placeholder="Correo Electr&oacute;nico*"
+											onFocus="this.select()" onClick="this.value='';" />
+
+										<s:textfield name="usuario.alias" placeholder="Alias*"
+											onFocus="this.select()" onClick="this.value='';" />
+
+										<s:password name="usuario.contrasena"
+											placeholder="Contraseña*" onFocus="this.select()"
 											onClick="this.value='';" />
-											
-											<s:textfield name="usuario.correo" placeholder="Correo Electr&oacute;nico*"
-											onFocus="this.select()" 
-											onClick="this.value='';" />
-											
-											<s:textfield name="usuario.alias" placeholder="Alias*"
-											onFocus="this.select()" 
-											onClick="this.value='';" />
-											
-											<s:password name="usuario.contrasena"  placeholder="Contraseña*"
-											onFocus="this.select()" 
-											onClick="this.value='';" />
-											
-											<s:password name="contrasenaConfirmacion"  placeholder="Contraseña Confirmaci&oacute;n*"
-											onFocus="this.select()" 
-											onClick="this.value='';" />
-											
-											<s:submit  cssClass="submit"
-											value="Registrarse" />
-											</s:form></td>
+
+										<s:password name="contrasenaConfirmacion"
+											placeholder="Contraseña Confirmaci&oacute;n*"
+											onFocus="this.select()" onClick="this.value='';" />
+
+										<s:submit cssClass="submit" value="Registrarse" />
+									</s:form></td>
 							</tr>
 						</table>
 					</div>
@@ -108,7 +86,7 @@
 					<p>&#169; 2014 MEMO | AGENDA EN LINEA</p>
 					<ul>
 						<li><a href="index.jsp">Inicio</a></li>
-						<li><a href="aboutjsp">Perfil</a></li>
+						<li><a href="about.jsp">Perfil</a></li>
 						<li><a href="blog.jsp">Agenda</a></li>
 					</ul>
 				</div>

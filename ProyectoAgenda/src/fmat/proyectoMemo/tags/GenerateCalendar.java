@@ -34,11 +34,11 @@ public class GenerateCalendar extends TagSupport {
 	Calendar cal2 = Calendar.getInstance();
 	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 	String extra = "";
-
+	HttpServletRequest request;
 
 	public int doStartTag() throws JspException {
 		GregorianCalendar	cal = null;
-		HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();  
+		 request = (HttpServletRequest) pageContext.getRequest();  
 		HttpSession session = request.getSession(false);  
 
 		cal = (GregorianCalendar) pageContext.getAttribute( "date",
@@ -158,11 +158,12 @@ public class GenerateCalendar extends TagSupport {
 	private void getUserEvents(HttpSession session) {
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		int id_usuario = usuario.getIdUsuario();
+
 		eventos = daoEv.recuperarEventosDelUsuario(id_usuario);
 		for (int i = 0; i < eventos.size(); i++) {
 			System.out.println(eventos.get(i).toString());
-		}
-	}
+		}}
+
 
 	private String getHeader( int dayOfWeek ) {
 		String	style = "weekday";

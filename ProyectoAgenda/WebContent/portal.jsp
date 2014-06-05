@@ -31,17 +31,11 @@
 			</div>
 			<div class="body">
 				<div class="login">
-
 					Bienvenido
 					<s:property value="#session['usuario'].alias" />|
-					<!--  
-					<s:a href="index.jsp" onClick="cerrarSesion">Cerrar sesión</s:a>
-					-->
 					<s:url action="cerrarSesion" var="linkCerrar">
 					</s:url>
-					<p>
-						<a href="${linkCerrar}">Cerrar sesión</a>
-					</p>
+					<a href="${linkCerrar}">Cerrar sesión</a>
 				</div>
 
 				<div class="content-home">

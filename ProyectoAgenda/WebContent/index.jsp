@@ -22,13 +22,11 @@
 				<a href="portal.jsp" id="logo"><img src="images/logo.png"
 					alt="logo"></a>
 				<ul>
-					<li class="selected home"><a href="portal.jsp">Inicio</a></li>
+					<li class="selected home"><a href="index.jsp">Inicio</a></li>
 					<li class="about"><a href="about.jsp">Perfil</a></li>
 					<li class="blog"><a href="blog.jsp">Agenda</a></li>
 				</ul>
 				<div class="connect">
-					<a href="http://www.facebook.com" id="fb">facebook</a>
-					<a href="http://www.twitter.com" id="twitter">twitter</a>
 				</div>
 			</div>
 			<div class="body">
